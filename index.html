@@ -16,36 +16,51 @@
       </div>
     </div>
 
-    <!-- MAIN FOCUS: DEFCON indicator (moved here) -->
-    <div class="defcon-main">
-      <div class="defcon-container">
-        <div class="defcon-level" data-level="5">5</div>
-        <div class="defcon-level" data-level="4">4</div>
-        <div class="defcon-level" data-level="3">3</div>
-        <div class="defcon-level" data-level="2">2</div>
-        <div class="defcon-level" data-level="1">1</div>
-      </div>
-      <div class="defcon-label">CURRENT THREAT LEVEL</div>
-    </div>
+    <!-- PANEL PRINCIPAL: DEFCON + fecha + tabla actual -->
+    <div class="defcon-panel">
+    <!-- 1. FECHA arriba a la izquierda -->
+    <div class="week-header current-date">🪖 WEEK 2026-04-19 · SCAN 04-19</div>
 
-    <!-- Asset table (secondary, below main indicator) -->
+    <!-- 2. SEMÁFORO (centrado) -->
+    <div class="defcon-container">
+      <div class="defcon-level" data-level="5">5</div>
+      <div class="defcon-level" data-level="4">4</div>
+      <div class="defcon-level" data-level="3">3</div>
+      <div class="defcon-level" data-level="2">2</div>
+      <div class="defcon-level" data-level="1">1</div>
+    </div>
+    <div class="defcon-label">CURRENT THREAT LEVEL</div>
+
+    <!-- 3. TABLA Energy / Technology (centrada) -->
+    <div class="mini-table-container">
+      <table class="tracking-table mini" id="currentWeekTable">
+        <thead>
+          <tr><th>ASSET</th><th>Perf D</th><th>Perf W</th><th>Perf M</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="asset">ENERGY</td><td class="up">+0.9% ↑</td><td class="up">+5.1% ↑</td><td class="up">+15.3% ↑</td></tr>
+          <tr><td class="asset">TECHNOLOGY</td><td class="down">-1.9% ↓</td><td class="down">-4.1% ↓</td><td class="down">-5.8% ↓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+    <!-- HISTORIAL DE SEMANAS ANTERIORES (se van apilando) -->
     <div id="weeksContainer">
+      <!-- Cada semana se copia como un .week-block, con su propia tabla de Energy/Technology -->
       <div class="week-block">
-        <div class="week-header">🪖 WEEK 2026-04-19 · SCAN 04-19</div>
-        <table class="tracking-table">
-          <thead>
-            <tr><th>ASSET</th><th>Perf D</th><th>Perf W</th><th>Perf M</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="asset">BRENT</td><td class="up">+0.8% ↑</td><td class="up">+3.2% ↑</td><td class="up">+12.0% ↑</td></tr>
-            <tr><td class="asset">WTI</td><td class="down">-1.1% ↓</td><td class="up">+0.7% ↑</td><td class="neutral">+5.2% →</td></tr>
-            <tr><td class="asset">ENERGY</td><td class="up">+0.9% ↑</td><td class="up">+5.1% ↑</td><td class="up">+15.3% ↑</td></tr>
-            <tr><td class="asset">BASIC MATERIALS</td><td class="down">-0.2% ↓</td><td class="neutral">+2.2% →</td><td class="up">+8.5% ↑</td></tr>
-            <tr><td class="asset">USD</td><td class="neutral">+0.1% →</td><td class="down">-1.0% ↓</td><td class="neutral">+3.2% →</td></tr>
-            <tr><td class="asset">TECHNOLOGY</td><td class="down">-1.9% ↓</td><td class="down">-4.1% ↓</td><td class="down">-5.8% ↓</td></tr>
-          </tbody>
-        </table>
+        <div class="week-header">🪖 WEEK 2026-04-12 · SCAN 04-12</div>
+        <div class="mini-table-container">
+          <table class="tracking-table mini">
+            <thead><tr><th>ASSET</th><th>Perf D</th><th>Perf W</th><th>Perf M</th></tr></thead>
+            <tbody>
+              <tr><td class="asset">ENERGY</td><td class="up">+1.2% ↑</td><td class="up">+4.8% ↑</td><td class="up">+13.9% ↑</td></tr>
+              <tr><td class="asset">TECHNOLOGY</td><td class="down">-2.1% ↓</td><td class="down">-3.5% ↓</td><td class="down">-5.0% ↓</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+      <!-- Se pueden agregar más .week-block (más antiguas) abajo -->
     </div>
 
     <div class="sidebar">
@@ -55,16 +70,12 @@
     </div>
     <div class="footer">† SATURDOOM · weekly regime shift detection · not financial advice †</div>
   </div>
+
   <script>
     fetch('navbar.html')
       .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Navbar load error:', error);
-        document.getElementById('navbar-placeholder').innerHTML = '<div class="navbar" style="color:red;">⚠️ NAVBAR NOT FOUND</div>';
-      });
+      .then(data => document.getElementById('navbar-placeholder').innerHTML = data)
+      .catch(() => document.getElementById('navbar-placeholder').innerHTML = '<div class="navbar" style="color:red;">⚠️ NAVBAR NOT FOUND</div>');
   </script>
   <script src="script.js"></script>
 </body>
