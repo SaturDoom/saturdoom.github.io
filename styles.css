@@ -5,6 +5,28 @@
   box-sizing: border-box;
 }
 
+.navbar {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 0.75rem;
+  background: #071f04;
+  border: 1px solid #3a7a2f;
+}
+
+.navbar a {
+  color: #b3ff99;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar a:hover {
+  color: #ffcc77;
+  text-decoration: underline;
+}
+
 body {
   background: #010501;
   font-family: 'Courier New', 'VT323', monospace;
