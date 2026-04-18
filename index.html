@@ -22,6 +22,7 @@
         <button class="carousel-btn prev" id="prevWeekBtn">◀</button>
         <div class="carousel-week-content">
           <div class="week-header current-date" id="weekDateHeader"></div>
+
           <div class="defcon-container">
             <div class="defcon-level" data-level="5">5</div>
             <div class="defcon-level" data-level="4">4</div>
@@ -29,7 +30,8 @@
             <div class="defcon-level" data-level="2">2</div>
             <div class="defcon-level" data-level="1">1</div>
           </div>
-          <div class="defcon-label">CURRENT THREAT LEVEL</div>
+
+          <div class="defcon-label"><strong>CURRENT THREAT LEVEL</strong></div>
           <div class="mini-table-container">
             <table class="tracking-table mini" id="weekTable">
               <thead>
@@ -39,16 +41,74 @@
                 <!-- Las filas se generarán desde script.js -->
               </tbody>
             </table>
+            <div class="defcon-label"><strong>THREAT LEVEL LOGIC:</strong></div>
+            <div class="table-label">
+              <div>Table shows weekly performance (% change) of Energy and Technology sectors.
+              <div>DEFCON level (1–5) is determined by comparing both values:</div>
+
+              <div>🟥 DEFCON 1: Tech < -2.5% AND Energy > +2.5% (severe divergence)</div>
+
+              <div>🟧 DEFCON 2: Tech < 0% AND Energy > 0% (moderate divergence)</div>
+
+              <div>🟨 DEFCON 3: Tech < 0% AND Energy < 0% (both negative)</div>
+
+              <div>🟦 DEFCON 4: Tech > 0% AND Energy < 0% (calm)</div>
+
+              <div>🟩 DEFCON 5: all other cases (peace / low threat)</div>
+
+              Cell colors (green/red/gray) indicate trend vs previous week, not the threat level.</div>
+            </div>
           </div>
         </div>
         <button class="carousel-btn next" id="nextWeekBtn">▶</button>
       </div>
     </div>
 
+    <!-- NUEVO: Panel de Giro (regime shift) -->
+    <div class="giro-panel">
+      <div class="carousel-container">
+        <button class="carousel-btn prev" id="prevGiroBtn">◀</button>
+        <div class="carousel-week-content">
+          <div class="week-header current-date" id="giroDateHeader"></div>
+          <div class="giro-direction">
+            <span class="dir-label left">TECH</span>
+            <div class="dir-arrow" id="giroArrow">→</div>
+            <span class="dir-label right">ENERGY</span>
+          </div>
+
+
+          <div class="defcon-label"><strong>REGIME SHIFT EARLY WARNING</strong></div>
+
+
+
+          <div class="giro-table-container">
+            <table class="tracking-table" id="giroTable">
+              <thead>
+                <tr><th>ASSET</th><th>Perf W</th><th>Perf M</th></tr>
+              </thead>
+              <tbody id="giroTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="defcon-label"><strong>REGIME SHIFT FORECAST (early warning)</strong></div>
+          <div class="table-label">
+            <div>TECH ←: no imminent shift. Calm.</div>
+            <div>↑ (MIXED): uncertain signals.</div>
+            <div>→ ENERGY: shift imminent. Crisis.</div>
+            <div>Divergence (Brent↑, USD↑, WTI↓) predicts the next major capital rotation from Tech toward Energy, and a potential global crisis: oil and food shortages, price spikes, layoffs, riots, and a stock market crash.</div>
+            
+          </div>
+        </div>
+
+
+        <button class="carousel-btn next" id="nextGiroBtn">▶</button>
+      </div>
+    </div>
+
     <div class="sidebar">
-      <div class="box"><h3>⚡ ALERTS</h3><p>[04-19] BRENT +3% ON HORMUZ<br>[04-18] FED RATES HIKE SIGNAL<br>[04-17] OIL STOCKS -4.8M</p></div>
-      <div class="box"><h3>🥫 PREPPER</h3><p>WATER: 1G/DAY · ROTATE CANS Q2<br>FUEL STABILIZER · PHYSICAL GOLD</p></div>
-      <div class="box"><h3>📡 LINKS</h3><a href="#">ZeroHedge</a><a href="#">SHTFplan</a><a href="#">The Last Bear</a></div>
+      <div class="box"><h3>ALERTS</h3><p>[04-19] BRENT +3% ON HORMUZ<br>[04-18] FED RATES HIKE SIGNAL<br>[04-17] OIL STOCKS -4.8M</p></div>
+      <div class="box"><h3>PREPPER</h3><p>WATER: 1G/DAY · ROTATE CANS Q2<br>FUEL STABILIZER · PHYSICAL GOLD</p></div>
+      <div class="box"><h3>LINKS</h3><a href="https://www.zerohedge.com/">ZeroHedge</a><a href="https://shtfplan.net">SHTFplan</a><a href="https://thetranscript.substack.com">The Transcript (Substack)</a></div>
     </div>
     <div class="footer">† SATURDOOM · weekly regime shift detection · not financial advice †</div>
   </div>
