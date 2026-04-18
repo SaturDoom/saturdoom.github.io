@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="crt">
-    <div id="navbar-placeholder"></div>
-    <div class="header">
+  <div class="crt debug-border">
+    <div id="navbar-placeholder" class="debug-border"></div>
+    <div class="header debug-border">
       <div class="logo">
         <h1>SATURDOOM</h1>
         <p>// weekly asset tracking · regime shift indicator //</p>
@@ -31,16 +31,23 @@
       <!-- COLUMNA IZQUIERDA (paneles) -->
       <div class="left-column">
         <!-- Panel de Giro -->
-        <div class="giro-panel">
+        <div class="giro-panel debug-border">
           <div class="carousel-container">
+            
             <button class="carousel-btn prev" id="prevGiroBtn">◀</button>
+
             <div class="carousel-week-content">
+
               <div class="week-header current-date" id="giroDateHeader"></div>
+
               <div class="giro-direction">
-                <span class="dir-label left">TECH</span>
-                <canvas id="gaugeCanvas" width="350" height="200"></canvas>
-                <span class="dir-label right">ENERGY</span>
+                <div class="giro-graphic">
+                <canvas id="gaugeCanvas" class="debug-border"></canvas>
+                <span class="dir-label left">TECH - UNCERTAIN - ENERGY</span>
+                <!--<span class="dir-label right">ENERGY</span>-->
+                </div>
               </div>
+              
               <div class="defcon-label"><strong>REGIME SHIFT EARLY WARNING</strong></div>
               <div class="giro-table-container">
                 <table class="tracking-table mini" id="giroTable">

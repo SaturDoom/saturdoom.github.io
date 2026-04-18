@@ -148,7 +148,7 @@
     ctx.translate(width / 2, height / 2 + yOffset);
     ctx.rotate(-Math.PI / 2);
     
-    const radius = Math.min(width, height) * 0.85;
+    const radius = Math.min(width, height) * 1;
     const centerX = 0;
     const centerY = 0;
     const startAngle = -Math.PI / 2;

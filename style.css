@@ -12,27 +12,31 @@
   --bg-dark: #010501;
   --panel-bg: #0a1c05;
   --border-green: #3a7a2f;
+  --trtd: #2b6320;
   --text-green: #b3ff99;
   --up-green: #aaff88;
   --down-red: #ff7b7b;
   --neutral-grey: #c9c97a;
+
 }
 
 /* ---------- BASE & TYPOGRAPHY ---------- */
 body {
   background: var(--bg-dark);
   font-family: 'Courier New', 'VT323', monospace;
-  padding: 2rem 1rem;
+  /*padding: 2rem 1rem;*/
+  padding: 0;
   color: #b0ff90;
 }
 
 /* main container (CRT effect) */
 .crt {
-  max-width: 1300px;
+  max-width: 800px;
   margin: 0 auto;
   background: var(--bg-dark);
   /*border: 2px solid #2f6b2a;*/
-  padding: 1.5rem 1rem;
+  /*padding: 1.5rem 1rem;*/
+  padding: 1.5rem 1.5rem;
 }
 
 /* ---------- NAVBAR ---------- */
@@ -41,7 +45,7 @@ body {
   font-size: 1.5rem;
   gap: 2rem;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin: 0;
   padding: 0;
   background: var(--panel-bg);
   border: 1px solid var(--border-green);
@@ -91,7 +95,7 @@ body {
   background: var(--panel-bg);        /* mismo fondo que defcon-panel */
   border: 2px solid var(--border-green);  /* mismo borde que los paneles */
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 .countdown-label {
   font-size: 1rem;
@@ -102,12 +106,12 @@ body {
 }
 .countdown-timer {
   font-family: 'Courier New', monospace;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   color: var(--text-green);
   /*background: #000000;        /* fondo negro para el conjunto de dígitos */
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0 0 1rem 0;
   /*border: 2px solid #6bc84b;*/
   border-radius: 8px;
   letter-spacing: 5px;
@@ -119,7 +123,7 @@ body {
   box-shadow: inset 0 0 5px #1c5e15;
 }
 .giro-direction canvas {
-  display: block;
+  display:block;
   margin: 0 auto;
   background: transparent;
 }
@@ -135,9 +139,10 @@ body {
   background: var(--panel-bg);
   border: 2px solid var(--border-green) ;
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   /*margin: 2rem 0;*/
   /* equal height for both panels */
+  width: 100%;
   min-height: 460px;
   display: flex;
   flex-direction: column;
@@ -276,14 +281,16 @@ body {
 
 .giro-direction {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   margin: 0 0 0.5rem 0;
   height: 15rem;
-  background: #071f04;
-  border: 1px solid var(--border-green);
+  background: transparent;
+  border: none;
+  /*border: 1px solid var(--border-green);*/
   padding: 0.5rem 1rem;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
 }
 
 .giro-graphic {
@@ -295,7 +302,7 @@ body {
 
 .dir-label {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 1rem;
   color: var(--text-green);
 }
 .dir-label.left,
@@ -386,7 +393,7 @@ body {
   width: 50%;
   font-size: 1.2rem;
   padding: 12px 8px;
-  border: 1px solid #2b6320;
+  border: 1px solid var(--trtd);
   text-align: center;
 }
 .tracking-table.mini th {
@@ -492,7 +499,7 @@ body {
   .header {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    /*gap: 1rem;*/
   }
   .logo h1 {
     font-size: 1.8rem;
@@ -573,3 +580,7 @@ body::before {
     padding-top: 1.5rem;
   }
 }
+
+/*.debug-border {
+  border: 2px solid red;
+}*/
