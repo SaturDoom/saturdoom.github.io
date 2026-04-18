@@ -422,6 +422,27 @@ body {
   color: #5a8749;
 }
 
+.box {
+  position: relative;
+}
+.box[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #010501;
+  color: #b3ff99;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #6bc84b;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 100;
+  margin-bottom: 8px;
+  font-family: 'Courier New', monospace;
+}
+
 /* ---------- RESPONSIVE (mobile) ---------- */
 @media (max-width: 700px) {
   .defcon-container {
