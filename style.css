@@ -7,9 +7,20 @@
   box-sizing: border-box;
 }
 
+/* ---------- VARIABLES ---------- */
+:root {
+  --bg-dark: #010501;
+  --panel-bg: #0a1c05;
+  --border-green: #3a7a2f;
+  --text-green: #b3ff99;
+  --up-green: #aaff88;
+  --down-red: #ff7b7b;
+  --neutral-grey: #c9c97a;
+}
+
 /* ---------- BASE & TYPOGRAPHY ---------- */
 body {
-  background: #010501;
+  background: var(--bg-dark);
   font-family: 'Courier New', 'VT323', monospace;
   padding: 2rem 1rem;
   color: #b0ff90;
@@ -33,10 +44,10 @@ body {
   margin-bottom: 2rem;
   padding: 0.75rem;
   background: #071f04;
-  border: 1px solid #3a7a2f;
+  border: 1px solid var(--border-green);
 }
 .navbar a {
-  color: #b3ff99;
+  color: var(--text-green);
   text-decoration: none;
   font-weight: bold;
   letter-spacing: 1px;
@@ -64,7 +75,7 @@ body {
   font-size: 5rem;
   font-weight: normal;
   letter-spacing: 5px;
-  color: #b3ff99;
+  color: var(--text-green);
   text-shadow: 0 0 3px #1c5e15;
 }
 .logo p {
@@ -77,8 +88,8 @@ body {
 .countdown-container {
   text-align: center;
   margin: 1.5rem 0;
-  background: #0a1c05;        /* mismo fondo que defcon-panel */
-  border: 2px solid #3a7a2f;  /* mismo borde que los paneles */
+  background: var(--panel-bg);        /* mismo fondo que defcon-panel */
+  border: 2px solid var(--border-green);  /* mismo borde que los paneles */
   border-radius: 8px;
   padding: 1rem;
 }
@@ -93,7 +104,7 @@ body {
   font-family: 'Courier New', monospace;
   font-size: 4rem;
   font-weight: bold;
-  color: #b3ff99;
+  color: var(--text-green);
   /*background: #000000;        /* fondo negro para el conjunto de dígitos */
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -102,7 +113,7 @@ body {
   letter-spacing: 5px;
 }
 .time-block {
-  background: #010501;        /* negro verdoso muy oscuro para cada dígito */
+  background: var(--bg-dark);        /* negro verdoso muy oscuro para cada dígito */
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   box-shadow: inset 0 0 5px #1c5e15;
@@ -121,8 +132,8 @@ body {
 /* ---------- COMMON PANEL STYLES (DEFCON & GIRO) ---------- */
 .defcon-panel,
 .giro-panel {
-  background: #0a1c05;
-  border: 2px solid #3a7a2f;
+  background: var(--panel-bg);
+  border: 2px solid var(--border-green) ;
   border-radius: 8px;
   padding: 1.5rem;
   margin: 2rem 0;
@@ -149,9 +160,9 @@ body {
 
 /* navigation buttons (shared) */
 .carousel-btn {
-  background: #0a1c05;
-  border: 1px solid #3a7a2f;
-  color: #b3ff99;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-green);
+  color: var(--text-green);
   font-size: 2rem;
   font-weight: bold;
   padding: 0.5rem 1rem;
@@ -223,7 +234,7 @@ body {
 .defcon-level.active[data-level="5"] {
   background-color: #1a5a1a;
   border-color: #6bc84b;
-  color: #b3ff99;
+  color: var(--text-green);
   box-shadow: 0 0 12px #6bc84b;
 }
 .defcon-level.active[data-level="4"] {
@@ -270,7 +281,7 @@ body {
   margin: 0 0 0.5rem 0;
   height: 15rem;
   background: #071f04;
-  border: 1px solid #3a7a2f;
+  border: 1px solid var(--border-green);
   padding: 0.5rem 1rem;
   border-radius: 4px;
 }
@@ -285,7 +296,7 @@ body {
 .dir-label {
   font-weight: bold;
   font-size: 3rem;
-  color: #b3ff99;
+  color: var(--text-green);
 }
 .dir-label.left,
 .dir-label.right {
@@ -304,7 +315,7 @@ body {
   flex: 0 auto;
 }
 .dir-label.left {
-  color: #b3ff99;   /* mismo verde que DEFCON 5 */
+  color: var(--text-green);   /* mismo verde que DEFCON 5 */
 }
 .dir-label.right {
   color: #ffaaaa;   /* mismo rojo que DEFCON 1 */
@@ -348,13 +359,13 @@ body {
 
 /* color classes for performance (trend vs previous week) */
 .up {
-  color: #aaff88;
+  color: var(--up-green);
 }
 .down {
-  color: #ff7b7b;
+  color: var(--down-red);
 }
 .neutral {
-  color: #c9c97a;
+  color: var(--neutral-grey);
 }
 
 /* ---------- MINI TABLE (inside DEFCON panel) ---------- */
@@ -441,8 +452,8 @@ body {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: #010501;
-  color: #b3ff99;
+  background: var(--bg-dark);
+  color: var(--text-green);
   padding: 0.3rem 0.6rem;
   border: 1px solid #6bc84b;
   border-radius: 4px;
@@ -505,8 +516,8 @@ body::before {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 255, 0, 0.15) 0px,
-    rgba(0, 255, 0, 0.15) 2px,
+    rgba(0, 255, 0, 0.3) 0px,
+    rgba(0, 255, 0, 0.3) 2px,
     transparent 2px,
     transparent 4px
   );
