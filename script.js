@@ -235,7 +235,7 @@
     // Círculo central
     ctx.beginPath();
     ctx.arc(0, 0, 6, 0, 2 * Math.PI);
-    ctx.fillStyle = '#b3ff99';
+    ctx.fillStyle = '#ffffff';
     ctx.fill();
     //ctx.strokeStyle = '#0a1c05';
     //ctx.lineWidth = 1;
