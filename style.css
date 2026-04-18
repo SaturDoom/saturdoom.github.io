@@ -71,6 +71,42 @@ body {
   color: #7cb05c;
 }
 
+/* COUNTDOWN TIMER (retro 80s) */
+/* COUNTDOWN TIMER (retro 80s) - colores invertidos */
+.countdown-container {
+  text-align: center;
+  margin: 1.5rem 0;
+  background: #0a1c05;        /* mismo fondo que defcon-panel */
+  border: 2px solid #3a7a2f;  /* mismo borde que los paneles */
+  border-radius: 8px;
+  padding: 1rem;
+}
+.countdown-label {
+  font-size: 1rem;
+  letter-spacing: 0.5rem;
+  color: #7cb05c;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.countdown-timer {
+  font-family: 'Courier New', monospace;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #b3ff99;
+  /*background: #000000;        /* fondo negro para el conjunto de dígitos */
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  /*border: 2px solid #6bc84b;*/
+  border-radius: 8px;
+  letter-spacing: 5px;
+}
+.time-block {
+  background: #010501;        /* negro verdoso muy oscuro para cada dígito */
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: inset 0 0 5px #1c5e15;
+}
+
 /* ---------- COMMON PANEL STYLES (DEFCON & GIRO) ---------- */
 .defcon-panel,
 .giro-panel {
@@ -99,8 +135,6 @@ body {
   text-align: left;
   width: 100%;
 }
-
-
 
 /* navigation buttons (shared) */
 .carousel-btn {
