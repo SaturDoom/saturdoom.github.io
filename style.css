@@ -30,8 +30,8 @@ body {
 .crt {
   max-width: 1300px;
   margin: 0 auto;
-  background: #031002;
-  border: 2px solid #2f6b2a;
+  background: var(--bg-dark);
+  /*border: 2px solid #2f6b2a;*/
   padding: 1.5rem 1rem;
 }
 
@@ -42,9 +42,10 @@ body {
   gap: 2rem;
   justify-content: center;
   margin-bottom: 2rem;
-  padding: 0.75rem;
-  background: #071f04;
+  padding: 0;
+  background: var(--panel-bg);
   border: 1px solid var(--border-green);
+  border-radius: 1rem;
 }
 .navbar a {
   color: var(--text-green);
@@ -83,14 +84,13 @@ body {
   color: #7cb05c;
 }
 
-/* COUNTDOWN TIMER (retro 80s) */
 /* COUNTDOWN TIMER (retro 80s) - colores invertidos */
 .countdown-container {
   text-align: center;
   margin: 1.5rem 0;
   background: var(--panel-bg);        /* mismo fondo que defcon-panel */
   border: 2px solid var(--border-green);  /* mismo borde que los paneles */
-  border-radius: 8px;
+  border-radius: 1rem;
   padding: 1rem;
 }
 .countdown-label {
@@ -134,9 +134,9 @@ body {
 .giro-panel {
   background: var(--panel-bg);
   border: 2px solid var(--border-green) ;
-  border-radius: 8px;
+  border-radius: 1rem;
   padding: 1.5rem;
-  margin: 2rem 0;
+  /*margin: 2rem 0;*/
   /* equal height for both panels */
   min-height: 460px;
   display: flex;
@@ -185,7 +185,7 @@ body {
 
 /* week header (date) */
 .week-header {
-  background: #0f2a0a;
+  background: var(--bg-dark);
   display: inline-block;
   padding: 0.2rem 1rem;
   margin-bottom: 1rem;
@@ -417,9 +417,10 @@ body {
 }
 .box {
   flex: 1;
-  background: #051002;
+  background: var(--panel-bg);
   border: 1px solid #367e28;
   padding: 0.7rem;
+  border-radius: 1rem;
 }
 .box h3 {
   font-size: 1rem;
@@ -438,10 +439,20 @@ body {
   text-decoration: none;
 }
 .footer {
-  font-size: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  border-top: 2px dashed #4a8c3a;
+  padding: 5.75rem 0 0 0;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.footerIn {
   text-align: center;
-  margin-top: 2rem;
-  color: #5a8749;
+}
+.logo p {
+  font-size: 1rem;
+  color: #7cb05c;
 }
 
 .box {
@@ -524,4 +535,41 @@ body::before {
   );
   pointer-events: none;
   z-index: 9999;
+}
+
+/* ---------- TWO-COLUMN LAYOUT ---------- */
+.two-column-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  margin: 2rem 0;
+}
+.left-column {
+  display:flex;
+  flex-direction: column;
+  flex: 3; /* 75% ancho */
+  gap: 2rem;
+}
+.right-column {
+  flex: 1; /* 25% ancho */
+}
+.sidebar {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+  flex-direction: column;
+  height: auto;
+}
+@media (max-width: 900px) {
+  .two-column-grid {
+    flex-direction: column;
+  }
+  .left-column, .right-column {
+    flex: auto;
+  }
+  .sidebar {
+    margin-top: 2rem;
+    border-top: 1px solid #367e28;
+    padding-top: 1.5rem;
+  }
 }
