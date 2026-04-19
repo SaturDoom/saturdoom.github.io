@@ -283,6 +283,9 @@ body {
 .table-label {
   line-height: 1.6;
   margin-top: 1.5rem;
+  text-align: justify;
+
+
 }
 
 /* También para los textos dentro de .table-label */
@@ -393,7 +396,7 @@ body {
 /* ---------- MINI TABLE (inside DEFCON panel) ---------- */
 .mini-table-container {
   width: 100%;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
 }
 .tracking-table.mini {
   width: 100%;
