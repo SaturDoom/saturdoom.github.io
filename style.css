@@ -18,6 +18,7 @@
   --up-green: #aaff88;
   --down-red: #ff7b7b;
   --neutral-grey: #c9c97a;
+  --dashed-green: #4a8c3a;
 
 }
 
@@ -34,21 +35,21 @@ body {
 .crt {
   max-width: 1024px;
   margin: 0 auto;
-  background: var(--black);
-  padding: 1.5rem;
+  padding: 1.5rem 0 1.5 0;
+  background-color: var(--panel-bg);
 }
 
 /* ---------- NAVBAR ---------- */
 .navbar {
   display: flex;
-  font-size: auto;
-  gap: 2rem;
   justify-content: center;
-  margin: 0;
+  height: 1.5rem;
+  font-size: auto;
+  /*gap: 2rem;*/
   padding: 0;
-  background: var(--panel-bg);
-  border: 1px solid var(--border-green);
-  border-radius: 1rem;
+  margin: 0;
+  background-color: var(--black);
+  /*border: 1px solid var(--border-green);*/
 }
 .navbar a {
   color: var(--text-green);
@@ -68,8 +69,8 @@ body {
   justify-content: center;
   align-items: baseline;
   padding: 1rem;
-  border-bottom: 2px dashed #4a8c3a;
-  margin-bottom: 1.5rem;
+  border-bottom: 2px dashed var(--border-green);
+  /*margin-bottom: 1.5rem;*/
 }
 .logo {
   text-align: center;
@@ -92,39 +93,50 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
-  padding: 0 0 0 0;
   width: 100%;
+  /*aspect-ratio: 1/1;*/
+  text-align: center;
+  padding: 1rem;
   /*min-height: 460px;*/
   /*background: var(--panel-bg);*/
   /*border: 2px solid var(--border-green);*/
   /*border-radius: 1rem;*/
   margin: 0;
+  background-color: var(--panel-bg);
+  border: 2px solid var(--border-green);
+  border-radius: 1rem;
 }
-.countdown-label {
-  font-size: 1rem;
-  letter-spacing: 0.5rem;
-  color: #7cb05c;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
+
 .countdown-timer {
+  display: flex;
+  flex-direction: column;
+  /*aspect-ratio: 1/1; */ 
+  justify-content: space-between;
+  gap: 1rem;
   font-family: 'Courier New', monospace;
-  font-size: 4.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: var(--border-green);
-  background: transparent;
-  display: inline-block;
-  padding: 0 0 1rem 0;
-  border-radius: 8px;
   letter-spacing: auto;
+  color: var(--bg-dark);
+  /*border: 2px solid var(--border-green);*/
+
 }
 .time-block {
   padding: 0.5rem 1rem;
   background: var(--text-green);
   border-radius: 1rem;
   box-shadow: inset .1rem .1rem 1rem var(--bg-dark);
+  /*margin: 3rem 0 0 0;*/
 }
+
+.countdown-label {
+  font-size: 1rem;
+  letter-spacing: 0.5rem;
+  color: #7cb05c;
+  text-transform: uppercase;
+  /*margin: 1rem 0 0 0;*/
+}
+
 .giro-direction canvas {
   display:block;
   margin: 0;
@@ -432,19 +444,19 @@ body {
 /* ---------- SIDEBAR & FOOTER ---------- */
 .sidebar {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 2rem;
   flex-wrap: wrap;
-  border-top: 1px solid #367e28;
-  /*padding-top: 1.5rem;*/
+  gap: 1.5rem;
+  /*margin-top: 2rem;*/
+  /*border-top: 1px solid #367e28;*/
+  /*border: 2px solid red;*/
 }
 .box {
   flex: 1;
   text-align: justify;
+  padding: 1rem 1.1rem 1rem 1rem;
   background: var(--panel-bg);
   border: 1px solid #367e28;
   border-radius: 1rem;
-  padding: 1.5rem;
 }
 .box h3 {
   display: inline-block;
@@ -579,7 +591,9 @@ body::before {
   display: flex;
   gap: 1.5rem;
   align-items: stretch;
-  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  /*margin: 0 0 1.5rem 0;*/
+  /*border-color: 2px solid purple;*/
 }
 .left-column {
   display:flex;
@@ -587,6 +601,8 @@ body::before {
   flex: 3; /* 75% ancho */
   gap: 1.5rem;
 }
+
+/* ---------- RIGHT COLUMN ---------- */
 .right-column {
   flex: 1; /* 25% ancho */
 }
