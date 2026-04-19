@@ -432,30 +432,31 @@ body {
 /* ---------- SIDEBAR & FOOTER ---------- */
 .sidebar {
   display: flex;
-  gap: 1.8rem;
+  gap: 1.5rem;
   margin-top: 2rem;
   flex-wrap: wrap;
   border-top: 1px solid #367e28;
-  padding-top: 1.5rem;
+  /*padding-top: 1.5rem;*/
 }
 .box {
   flex: 1;
+  text-align: justify;
   background: var(--panel-bg);
   border: 1px solid #367e28;
-  padding: 0.7rem;
   border-radius: 1rem;
+  padding: 1.5rem;
 }
 .box h3 {
-  font-size: 1rem;
-  border-bottom: 1px solid #548f3f;
   display: inline-block;
-  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  margin: 0 0 .5rem 0;
+  border-bottom: 1px solid #548f3f;
 }
 .box p, .box a {
   font-size: 0.83rem;
   line-height: 1.3;
 }
-.box a {
+.box p, .box a {
   display: block;
   color: #94d47a;
   font-weight: bold;
@@ -590,10 +591,10 @@ body::before {
   flex: 1; /* 25% ancho */
 }
 .sidebar {
+  flex-direction: column;
   margin-top: 0;
   border-top: none;
   padding-top: 0;
-  flex-direction: column;
   height: auto;
 }
 @media (max-width: 900px) {
