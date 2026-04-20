@@ -10,6 +10,7 @@
 <body>
   <div class="panel debug-border">
     <div id="navbar-placeholder" class="debug-border"></div>
+
     <div class="header debug-border">
       <div class="logo">
         <h1>SATURDOOM</h1>
@@ -19,166 +20,143 @@
 
     <!-- CONTENEDOR DE DOS COLUMNAS -->
     <div class="two-column-grid">
-      <!-- COLUMNA IZQUIERDA (paneles) -->
+      <!-- COLUMNA IZQUIERDA -->
       <div class="left-column">
 
-        <!-- Panel de Giro -->
-        <div class="giro-direction">
-          <div class="giro-graphic">
-            <canvas id="gaugeCanvas" class="debug-border"></canvas>
+        <!-- FILA SUPERIOR: GIRO + DEFCON juntos -->
+        <div class="top-gauges">
+          <!-- Giro Graphic -->
+          <div class="giro-direction">
+            <div class="giro-graphic">
+              <canvas id="gaugeCanvas" class="debug-border"></canvas>
+            </div>
+            <div class="giro-labels">
+              <span class="dir-label">TECH</span>
+              <span class="dir-label">UNCERTAIN</span>
+              <span class="dir-label">ENERGY</span>
+            </div>
           </div>
-          <div class="giro-labels">
-            <span class="dir-label">TECH</span>
-            <span class="dir-label">UNCERTAIN</span>
-            <span class="dir-label">ENERGY</span>
+
+          <!-- Alert DEFCON -->
+          <div class="defcon-wrapper">
+            <div class="defcon-label debug-border"><strong>REGIME SHIFT EARLY WARNING</strong></div>
+            <div class="defcon-container debug-border">
+              <div class="defcon-level" data-level="5">5</div>
+              <div class="defcon-level" data-level="4">4</div>
+              <div class="defcon-level" data-level="3">3</div>
+              <div class="defcon-level" data-level="2">2</div>
+              <div class="defcon-level" data-level="1">1</div>
+            </div>
+            <div class="defcon-label debug-border"><strong>Current Threat Level</strong></div>
           </div>
         </div>
-        <div class="defcon-container debug-border">
-          <div class="defcon-level" data-level="5">5</div>
-          <div class="defcon-level" data-level="4">4</div>
-          <div class="defcon-level" data-level="3">3</div>
-          <div class="defcon-level" data-level="2">2</div>
-          <div class="defcon-level" data-level="1">1</div>
-        </div>
 
+        <!-- PANEL ÚNICO CON EFECTO MONITOR VIEJO -->
+        <div class="old-monitor-panel scanline">
 
-        <div class="giro-panel debug-border">
-          <div class="carousel-container scanline debug-border">
-            
-            <button class="carousel-btn prev debug-border" id="prevGiroBtn">◀</button>
-
-            <div class="carousel-week-contenta debug-border">
-
+          <!-- Tabla GIRO con botones -->
+          <div class="carousel-row">
+            <button class="carousel-btn prev" id="prevGiroBtn">◀</button>
+            <div class="carousel-week-content">
               <div class="week-header current-date" id="giroDateHeader"></div>
-
-              
-              <div class="defcon-label debug-border"><strong>REGIME SHIFT EARLY WARNING</strong></div>
-              
-              <div class="giro-table-container debug-border">
-                <table class="tracking-table mini" id="giroTable">
+              <div class="giro-table-container">
+                <table class="tracking-table" id="giroTable">
                   <thead><tr><th>ASSET</th><th>Perf W</th><th>Perf M</th></tr></thead>
                   <tbody id="giroTableBody"></tbody>
                 </table>
               </div>
-              <div class="defcon-label debug-border"><strong>REGIME SHIFT FORECAST LOGIC</strong></div>
-              
-              <div class="table-label">
-                <div>TECH ←: no imminent shift. Calm.</div>
-                <div>↑ (MIXED): uncertain signals.</div>
-                <div>→ ENERGY: shift imminent. Crisis.</div>
-                <div>Divergence (Brent↑, USD↑, WTI↓) predicts the next major capital rotation from Tech toward Energy, and a potential global crisis: oil and food shortages, price spikes, layoffs, riots, and a stock market crash.</div>
-              </div>
             </div>
-            <button class="carousel-btn next debug-border" id="nextGiroBtn">▶</button>
+            <button class="carousel-btn next" id="nextGiroBtn">▶</button>
           </div>
-        </div>
 
-        <!-- Panel DEFCON -->
-        <div class="defcon-panel">
+          <!-- Explicación REGIME SHIFT FORECAST LOGIC -->
+          <div class="defcon-label"><strong>REGIME SHIFT FORECAST LOGIC</strong></div>
+          <div class="table-label">
+            <div>TECH ←: no imminent shift. Calm.</div>
+            <div>↑ (MIXED): uncertain signals.</div>
+            <div>→ ENERGY: shift imminent. Crisis.</div>
+            <div>Divergence (Brent↑, USD↑, WTI↓) predicts the next major capital rotation from Tech toward Energy, and a potential global crisis: oil and food shortages, price spikes, layoffs, riots, and a stock market crash.</div>
+          </div>
 
-          <div class="carousel-container">
-
+          <!-- Tabla DEFCON con botones -->
+          <div class="carousel-row">
             <button class="carousel-btn prev" id="prevWeekBtn">◀</button>
-
-            <div class="carousel-week-contentb">
-
-              <div class="week-header current-date debug-border" id="weekDateHeader"></div>
-
-              
-              
-              <div class="table-label">
-                <div>DEFCON level (1–5) is determined by comparing both values:</div>
-                <div>🟥 DEFCON 1: Tech < -2.5% AND Energy > +2.5% (severe divergence)</div>
-                <div>🟧 DEFCON 2: Tech < 0% AND Energy > 0% (moderate divergence)</div>
-                <div>🟨 DEFCON 3: Tech < 0% AND Energy < 0% (both negative)</div>
-                <div>🟦 DEFCON 4: Tech > 0% AND Energy < 0% (calm)</div>
-                <div>🟩 DEFCON 5: all other cases (peace / low threat)</div>
-              </div>
-
-              <div class="defcon-label debug-border"><strong>CURRENT THREAT LEVEL</strong></div>
-
-              
-              <div class="mini-table-container debug-border">
+            <div class="carousel-week-content">
+              <div class="week-header current-date" id="weekDateHeader"></div>
+              <div class="mini-table-container">
                 <table class="tracking-table mini" id="weekTable">
                   <thead><tr><th>ASSET</th><th>Perf W</th></tr></thead>
                   <tbody id="weekTableBody"></tbody>
                 </table>
               </div>
-              
-              <div class="defcon-label debug-border"><strong>TABLE</strong></div>
-
-              <div>Table shows weekly performance (% change) of Energy and Technology sectors. Cell colors (green/red/gray) indicate trend vs previous week, not the threat level.</div>
-
-
             </div>
-
             <button class="carousel-btn next" id="nextWeekBtn">▶</button>
           </div>
+
+          <!-- Explicación DEFCON -->
+          <div class="defcon-label"><strong>CURRENT THREAT LEVEL</strong></div>
+          <div class="table-label">
+            <div>DEFCON level (1–5) is determined by comparing both values:</div>
+            <div>🟥 DEFCON 1: Tech < -2.5% AND Energy > +2.5% (severe divergence)</div>
+            <div>🟧 DEFCON 2: Tech < 0% AND Energy > 0% (moderate divergence)</div>
+            <div>🟨 DEFCON 3: Tech < 0% AND Energy < 0% (both negative)</div>
+            <div>🟦 DEFCON 4: Tech > 0% AND Energy < 0% (calm)</div>
+            <div>🟩 DEFCON 5: all other cases (peace / low threat)</div>
+          </div>
+          <div class="table-label">Table shows weekly performance (% change) of Energy and Technology sectors. Cell colors (green/red/gray) indicate trend vs previous week, not the threat level.</div>
         </div>
-      </div>
+
+      </div> <!-- fin left-column -->
 
       <!-- COLUMNA DERECHA (sidebar) -->
       <div class="right-column">
         <div class="sidebar">
-
-          <!-- COUNTDOWN TIMER (retro 80s style) -->
           <div class="countdown-container debug-border" id="countdownTimer">
-              <div class="time-block">
-                <span id="hours">00</span>:
-                <span id="minutes">00</span>:
-                <span id="seconds">00</span>
-              </div>
-              <div class="countdown-label"><strong>Next Update</strong></div>
+            <div class="time-block">
+              <span id="hours">00</span>:
+              <span id="minutes">00</span>:
+              <span id="seconds">00</span>
+            </div>
+            <div class="countdown-label"><strong>Next Update</strong></div>
           </div>
 
-
-          <!-- ALERTS -->
           <div class="box scanline">
             <p style="text-decoration: none; text-transform: uppercase;">
               <a href="https://www.wsj.com/livecoverage/iran-war-us-talks-2026" target="_blank">[04-19] Tehran’s Top Negotiator Says Iran and U.S. Are Far From Deal</a><br>
-              <a href="https://www.marketwatch.com/story/most-u-s-farmers-cant-afford-all-the-fertilizer-they-need-this-year-opening-the-strait-of-hormuz-comes-too-late-0aa72790?g=a9bf8968-18a6-4c33-a418-5f17c06d97a6&mod=mw_rss_bulletins" target="_blank">[04-17] Most U.S. farmers can’t afford all the fertilizer they need this year. Opening the Strait of Hormuz comes too late</a><br>
+              <a href="https://www.marketwatch.com/story/most-u-s-farmers-cant-afford-all-the-fertilizer-they-need-this-year-opening-the-strait-of-hormuz-comes-too-late-0aa72790" target="_blank">[04-17] Most U.S. farmers can’t afford all the fertilizer they need this year. Opening the Strait of Hormuz comes too late</a><br>
               <a href="https://x.com/araghchi/status/2045121573124759713" target="_blank">[04-17] Iran Reopens Strait of Hormuz</a><br>
               <a href="https://thetranscript.substack.com/p/04-13-2026-the-end-of-civilization" target="_blank">[04-13] The End of Civilization</a><br>
             </p>
           </div>
 
           <div class="alerts-container">
-          <div>
-          <h3 class="alerts-label">Alerts</h3>
-          </div>
+            <div><h3 class="alerts-label">Alerts</h3></div>
           </div>
 
           <div class="box scanline" data-tooltip="Content under construction">
             <p>WATER: 1G/DAY · ROTATE CANS Q2<br>FUEL STABILIZER · PHYSICAL GOLD</p>
           </div>
           <div class="prepper-container">
-            <div>
-              <h3 class="prepper-label">Prepper</h3>
-            </div>
+            <div><h3 class="prepper-label">Prepper</h3></div>
           </div>
-
 
           <div class="box scanline">
             <p>
-              <a href="https://www.zerohedge.com/">ZeroHedge</a>
-              <a href="https://shtfplan.net">SHTFplan</a>
+              <a href="https://www.zerohedge.com/">ZeroHedge</a><br>
+              <a href="https://shtfplan.net">SHTFplan</a><br>
               <a href="https://thetranscript.substack.com">The Transcript (Substack)</a>
             </p>
           </div>
           <div class="links-container">
-            <div>
-              <h3 class="links-label">Links</h3>
-            </div>
+            <div><h3 class="links-label">Links</h3></div>
           </div>
-
-
         </div>
-      </div>
-    </div>
+      </div> <!-- fin right-column -->
+    </div> <!-- fin two-column-grid -->
 
     <div class="footer">
       <div class="footerIn">
-      <p>† SATURDOOM · not financial advice †</p>
+        <p>† SATURDOOM · not financial advice †</p>
       </div>
     </div>
   </div>
@@ -187,12 +165,10 @@
     fetch('navbar.html')
       .then(response => response.text())
       .then(data => document.getElementById('navbar-placeholder').innerHTML = data)
-      .catch(() => document.getElementById('navbar-placeholder').innerHTML = '<div class="navbar" style="color:white;">⚠️ NAVBAR NOT FOUND - VISIT saturdoom.github.io</div>');
+      .catch(() => document.getElementById('navbar-placeholder').innerHTML = '<div class="navbar" style="color:white;">⚠️ NAVBAR NOT FOUND</div>');
   </script>
   <script src="script.js"></script>
-
   <script>
-    // Countdown to next Saturday at 00:00:00 local time
     function getNextSaturday() {
       const now = new Date();
       const nextSat = new Date();
@@ -200,7 +176,6 @@
       nextSat.setHours(0, 0, 0, 0);
       return nextSat;
     }
-
     function updateCountdown() {
       const now = new Date();
       const target = getNextSaturday();
