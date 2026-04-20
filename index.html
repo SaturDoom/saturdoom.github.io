@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SaturDoom · Regime Shift Tracker</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="panel debug-border">
@@ -22,6 +23,25 @@
       <div class="left-column">
 
         <!-- Panel de Giro -->
+        <div class="giro-direction">
+          <div class="giro-graphic">
+            <canvas id="gaugeCanvas" class="debug-border"></canvas>
+          </div>
+          <div class="giro-labels">
+            <span class="dir-label">TECH</span>
+            <span class="dir-label">UNCERTAIN</span>
+            <span class="dir-label">ENERGY</span>
+          </div>
+        </div>
+        <div class="defcon-container debug-border">
+          <div class="defcon-level" data-level="5">5</div>
+          <div class="defcon-level" data-level="4">4</div>
+          <div class="defcon-level" data-level="3">3</div>
+          <div class="defcon-level" data-level="2">2</div>
+          <div class="defcon-level" data-level="1">1</div>
+        </div>
+
+
         <div class="giro-panel debug-border">
           <div class="carousel-container scanline debug-border">
             
@@ -31,16 +51,7 @@
 
               <div class="week-header current-date" id="giroDateHeader"></div>
 
-              <div class="giro-direction">
-                <div class="giro-graphic">
-                  <canvas id="gaugeCanvas" class="debug-border"></canvas>
-                  <div class="giro-labels">
-                    <span class="dir-label">TECH</span>
-                    <span class="dir-label">UNCERTAIN</span>
-                    <span class="dir-label">ENERGY</span>
-                  </div>
-                </div>
-              </div>
+              
               <div class="defcon-label debug-border"><strong>REGIME SHIFT EARLY WARNING</strong></div>
               
               <div class="giro-table-container debug-border">
@@ -73,13 +84,7 @@
 
               <div class="week-header current-date debug-border" id="weekDateHeader"></div>
 
-              <div class="defcon-container debug-border">
-                <div class="defcon-level" data-level="5">5</div>
-                <div class="defcon-level" data-level="4">4</div>
-                <div class="defcon-level" data-level="3">3</div>
-                <div class="defcon-level" data-level="2">2</div>
-                <div class="defcon-level" data-level="1">1</div>
-              </div>
+              
               
               <div class="table-label">
                 <div>DEFCON level (1–5) is determined by comparing both values:</div>
