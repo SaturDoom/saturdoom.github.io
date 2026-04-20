@@ -9,7 +9,8 @@
 
 /* ---------- VARIABLES ---------- */
 :root {
-  --black: #000000;
+  /* ---------- In use ----------   */
+  --background: #000000;
   --bg-dark: #010501;
   --panel-bg: #0a1c05;
   --border-green: #3a7a2f;
@@ -34,37 +35,25 @@
 
 }
 
-/* ---------- BASE & TYPOGRAPHY ---------- */
-body {
-  background: var(--bg-dark);
-  font-family: 'Courier New', 'VT323', monospace;
-  /*padding: 2rem 1rem;*/
-  padding: 0;
-  color: #b0ff90;
+/* ---------- NAVBAR / HEADER ---------- */ 
+.navbar-header-container {
+  display: flex;
+  flex-direction: column;
 }
-
-/* main container (panel effect) */
-.panel {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 1.5rem 0 1.5 0;
-  background-color: var(--console-panel-medium);
-}
-
-/* ---------- NAVBAR ---------- */
+/* ---------- Navbar ---------- */
 .navbar {
   display: flex;
   justify-content: center;
-  height: 1.5rem;
+  height: 2rem;
   font-size: auto;
   /*gap: 2rem;*/
-  padding: 0;
+  padding: .5rem 0 .5rem 0;
   margin: 0;
-  background-color: var(--black);
-  /*border: 1px solid var(--border-green);*/
+  background-color: var(--bg-dark);
+  /*border: 1px solid var(--console-panel-medium);*/
 }
 .navbar a {
-  color: var(--text-green);
+  color: var(--background);
   text-decoration: none;
   font-weight: bold;
   letter-spacing: 1px;
@@ -73,8 +62,7 @@ body {
   color: #ffcc77;
   text-decoration: underline;
 }
-
-/* ---------- HEADER / LOGO ---------- */
+/* ---------- Header / Logo ---------- */
 .header {
   display: flex;
   flex-wrap: wrap;
@@ -82,10 +70,8 @@ body {
   align-items: baseline;
   padding: 0 0 1.5rem 0;
   background-color: var(--console-panel-dark);
-  /*border-bottom: .5rem dashed var(--bg-dark);*/
-  border-bottom: 2px solid var(--console-panel-light);  /* borde perforado */
-  box-shadow: inset 0 -2px 0 var(--bg-dark);  /* sombra blanca inferior */
-              /*inset -2px 0 0 rgba(255,255,255,0.7);  /* sombra blanca derecha */
+  box-shadow: inset 0 -.1rem 0 var(--bg-dark);  /* sombra oscura inferior */
+  border-bottom: 2px solid var(--console-panel-light);  /* borde claro inferior */
 
   /*margin-bottom: 1.5rem;*/
 }
@@ -99,11 +85,12 @@ body {
   font-size: 6.1rem;
   font-weight: bolder;
   position: relative;
-  left: -1px;
-  text-indent: -6px;
+  left: -.1rem;
+  text-indent: -.6rem;
   color: var(--console-panel-dark);
-  text-shadow: 1px 1px 1px var(--bg-dark), -1px -1px 0px rgba(255,255,255,0.5);
-
+  text-shadow: .1rem .1rem .1rem var(--bg-dark), 
+                -.1rem -.1rem 0 var(--console-panel-light);
+  padding: .5rem 0 0 0;
   /*border: 2px solid cyan;*/
 }
 .logo p {
@@ -112,6 +99,31 @@ body {
   text-transform: uppercase; 
   color: var(--paint-green-medium);
 }
+
+/* ---------- BASE & TYPOGRAPHY ---------- */
+body {
+  background: var(--console-panel-medium);
+  font-family: 'Courier New', 'VT323', monospace;
+  /*padding: 2rem 1rem;*/
+  padding: 0 0 0 0;
+  color: #b0ff90;
+}
+
+/* main container (panel effect) */
+.panel {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1.5rem 0 1.5 0;
+  background-color: var(--console-panel-medium);
+  border-left: .1rem solid var(--bg-dark);
+  border-right: .1rem solid var(--console-panel-light);
+  box-shadow: inset 2px 0 0 var(--console-panel-light),  /* sombra clara izquierda */
+              inset -2px 0 0 var(--bg-dark);  /* sombra oscura derecha */
+}
+
+
+
+
 
 
 
