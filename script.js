@@ -144,11 +144,11 @@
     ctx.clearRect(0, 0, width, height);
     ctx.save();
     // Desplazar al centro en x, y desplazar hacia abajo en y, y rotar -90° counterclockwise
-    const yOffset = 76;
+    const yOffset = 63;
     ctx.translate(width / 2, height / 2 + yOffset);
     ctx.rotate(-Math.PI / 2);
     
-    const radius = Math.min(width, height) * .9;
+    const radius = Math.min(width, height) * .84;
     const centerX = 0;
     const centerY = 0;
     const startAngle = -Math.PI / 2;
