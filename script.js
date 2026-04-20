@@ -144,11 +144,11 @@
     ctx.clearRect(0, 0, width, height);
     ctx.save();
     // Desplazar al centro en x, y desplazar hacia abajo en y, y rotar -90° counterclockwise
-    const yOffset = 133;
+    const yOffset = 158;
     ctx.translate(width / 2, height / 2 + yOffset);
     ctx.rotate(-Math.PI / 2);
     
-    const radius = Math.min(width, height) * .84;
+    const radius = Math.min(width, height) * .9;
     const centerX = 0;
     const centerY = 0;
     const startAngle = -Math.PI / 2;
@@ -162,10 +162,10 @@
     };
     
     // Configurar sombra para los sectores
-    ctx.shadowBlur = 4;
-    ctx.shadowColor = 'rgba(100, 100, 100, 0.6)';
-    ctx.shadowOffsetX = 4;
-    ctx.shadowOffsetY = 1;
+    //ctx.shadowBlur = 4;
+    //ctx.shadowColor = 'rgba(100, 100, 100, 0.6)';
+    //ctx.shadowOffsetX = 4;
+    //ctx.shadowOffsetY = 1;
 
     // Sector izquierdo (TECH)
     ctx.beginPath();
@@ -173,7 +173,7 @@
     ctx.lineTo(centerX, centerY);
     ctx.fillStyle = colors.left;
     ctx.fill();
-    ctx.strokeStyle = '#3a7a2f';
+    ctx.strokeStyle = '#c4c0a8';
     ctx.lineWidth = 1;
     ctx.stroke();
     
@@ -194,16 +194,16 @@
     ctx.stroke();
     
     // Borde exterior
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, startAngle, startAngle + sweep);
-    ctx.strokeStyle = '#6bc84b';
-    ctx.lineWidth = 2;
-    ctx.stroke();
+    //ctx.beginPath();
+    //ctx.arc(centerX, centerY, radius, startAngle, startAngle + sweep);
+    //ctx.strokeStyle = '#6bc84b';
+    //ctx.lineWidth = 2;
+    //ctx.stroke();
     
     // Restaurar sombras antes de dibujar la aguja
-    ctx.shadowBlur = 0;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
+    //ctx.shadowBlur = 0;
+    //ctx.shadowOffsetX = 0;
+    //ctx.shadowOffsetY = 0;
 
 
     // Ángulo de la aguja
@@ -220,22 +220,22 @@
     const needleX = Math.cos(angle) * needleLength;
     const needleY = Math.sin(angle) * needleLength;
     
-    ctx.shadowOffsetX = 4;   // desplazamiento derecha
-    ctx.shadowOffsetY = 1;   // desplazamiento abajo
+    ctx.shadowOffsetX = 6;   // desplazamiento derecha
+    ctx.shadowOffsetY = 4;   // desplazamiento abajo
     ctx.shadowBlur = 6;
-    ctx.shadowColor = 'rgba(100, 100, 100, 0.6)';
+    ctx.shadowColor = '#010501';
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(needleX, needleY);
-    ctx.strokeStyle = '#ffffff';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#4a4a2c';
+    ctx.lineWidth = 2;
     ctx.stroke();
     ctx.shadowBlur = 0; // restaurar
     
     // Círculo central
     ctx.beginPath();
     ctx.arc(0, 0, 6, 0, 2 * Math.PI);
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#4a4a2c';
     ctx.fill();
     
     ctx.restore();
@@ -318,7 +318,7 @@
   function resizeCanvasAndRedraw() {
     const canvas = document.getElementById('gaugeCanvas');
     if (!canvas) return;
-    const container = canvas.parentElement; // .giro-graphic
+    const container = canvas.parentElement; // .giro-container
     if (!container) return;
     const rect = container.getBoundingClientRect();
     if (rect.width === 0) return;
@@ -337,10 +337,10 @@
   window.addEventListener('load', function() {
     resizeCanvasAndRedraw();
   });
-  // Redibujar cuando se redimensione la ventana (útil para rotar móvil o cambiar de orientación)
   window.addEventListener('resize', function() {
-    resizeCanvasAndRedraw();
+    setTimeout(resizeCanvasAndRedraw, 200);
   });
+  
   // También llamar una vez ahora por si el load ya ocurrió
   setTimeout(resizeCanvasAndRedraw, 100);
 })();
