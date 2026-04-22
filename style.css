@@ -45,48 +45,137 @@ html {
   font-family: 'Courier New', 'VT323', monospace;
   text-align: center;
   text-transform: uppercase;
+  color: var(--paint-sepia-medium);
 }
 body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+  "navbar navbar"
+  "header header"
+  "main sidebar"
+  "footer footer";
+  min-height: 100vh;
   background-color: var(--console-panel-medium);
+  /*border-top: .1rem solid var(--console-panel-light);
+  border-right: .5rem solid var(--console-panel-dark);
+  border-left: .5rem solid var(--console-panel-light);*/
+}
+nav {
+  display: grid;
+  align-items: center;   /* centra verticalmente */
+}
+nav {
+  display: grid;
+  grid-area: navbar;
+  /*z-index: 10;*/
+  position: sticky;
+  top: 0;
+  /*grid-auto-flow: column;   /* Fuerza distribución horizontal */
+  /*justify-content: center;
+  align-content: center;*/
+  color: var(--text-green);
+  max-height: 56.5px;
+  gap: 20px;
+  padding: 1em;
+  background-color: var(--dark);
+  border-top: .4rem solid var(--console-panel-dark);
+  border-right: .4rem solid var(--console-panel-dark);
+  border-left: .4rem solid var(--console-panel-light);
+  border-top-right-radius: .4rem;
+  border-top-left-radius: .4rem;
 }
 
+header {
+  grid-area: header;
+  position: sticky;
+  top: 56.5px;
+  /*height: calc(120.5px - 56.5px);*/
+  padding: 3em;
+  background-color: var(--console-panel-medium);
+  border-right: .4rem solid var(--console-panel-dark);
+  border-bottom: .4rem solid var(--console-panel-dark);
+  border-left: .4rem solid var(--console-panel-light);
+}
+main {
+  grid-area: main;
+  background-color: var(--console-panel-medium);
+  border-top: .4rem solid var(--console-panel-dark);
+  border-right: .4rem solid var(--console-panel-light);
+  border-left: .4rem solid var(--console-panel-dark);
+  border-bottom: .4rem solid var(--console-panel-light);  border-radius: .8rem;
+  margin: 1em 1em 1em 5em;
+}
+aside {
+  grid-area: sidebar;
+  background-color: var(--console-panel-medium);
+  border-top: .4rem solid var(--console-panel-light);
+  border-right: .4rem solid var(--console-panel-dark);
+  border-left: .4rem solid var(--console-panel-light);
+  border-bottom: .4rem solid var(--console-panel-dark);
+  border-radius: .4rem;
+  margin: 1em 5em 1em 0;
+}
+footer {
+  grid-area: footer;
+  padding: 3em;
+  background-color: var(--console-panel-medium);
+  border-top: .4rem solid var(--console-panel-light);
+}
+@media(max-width: 800px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr 1fr auto;
+    grid-template-areas:
+    "navbar navbar"
+    "header header"
+    "main main"
+    "sidebar sidebar"
+    "footer footer";
+  }
+  nav {
+    align-items: center;
+  }
+  main {
+    margin: 1.5em;
+  }
+  aside {
+    margin: 1.5em;
+  }
+
+}
+
+
+/* ----------- HEADER ---------- */
 .Header {
   background-color: var(--console-panel-dark);
 }
 .Navbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: .5rem;
   color: var(--text-green);
   background-color: var(--dark);
 }
 .Logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: 6.1rem;
   font-weight: bolder;
   color: var(--console-panel-light);
   padding: 1.5rem;
 }
 
+/* ---------------- CONSOLE -------------------- */
 .Console {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(575px, auto) 1fr;
   padding: 0 2em;
+  max-width: 1024px;
   /*padding-left: min(50px, 7%);
   padding-right: min(50px, 7%);*/
   border: 2px solid purple;
 }
 .Panel {
-  display: grid;
-  grid-template-columns: repeat(autofit, 300px);
-  max-width: 1024px;
+
+  /*max-width: 1024px;*/
   color: var(--console-panel-light);
   gap: 2em;
   /*padding: 0 2em;*/
@@ -98,7 +187,6 @@ h1 {
   margin: 30px, 0;
 }
 .card {
-  text-align: center;
   color: var(--text-green);
   padding: 2em;
   background-color: var(--trtd);
