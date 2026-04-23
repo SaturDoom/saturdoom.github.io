@@ -1,221 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saturdoom</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SaturDoom · Regime Shift Tracker</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
+    <body>
+        <nav id="navbar-placeholder"></nav>
+        <header>Saturdoom</header>
+        <main>
+            <h2>Panel</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-
-<body>
-  <div class="navbar-header-container">
-    <div id="navbar-placeholder" class="debug-border"></div>
-    <div class="header debug-border">
-      <div class="logo">
-        <h1>SATURDOOM</h1>
-        <p>Weekly Asset Tracking · Regime Shift Indicator</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="Panel debug-border">
-
-    <!-- CONTENEDOR DE DOS COLUMNAS -->
-    <div class="two-column-grid">
-      <!-- COLUMNA IZQUIERDA -->
-      <div class="left-column">
-
-        <!-- FILA SUPERIOR: GIRO + DEFCON juntos -->
-        <div class="top-gauges">
-
-          <div class="defcon-label debug-border"><strong>Current Threat Level</strong></div>
-
-
-          <div class="instruments-wrapper">
-            <!-- Giro Graphic -->
-            <div>
-              <div class="giro-wrapper">
-                <div class="giro-labels">
-                  <span class="giro-label">TECH</span>
-                  <span class="giro-label">UNCERTAIN</span>
-                  <span class="giro-label">ENERGY</span>
+        </main>
+        <aside>
+            <div class="clock" id="countdownTimer">
+                <div class="time-block">
+                <span id="hours">00</span> :
+                <span id="minutes">00</span> :
+                <span id="seconds">00</span>
                 </div>
-                <canvas id="gaugeCanvas" class="debug-border"></canvas>
-                
-                <div class="giro-label2 debug-border"><strong>Regime Shift Early Warning</strong></div>
-              </div>
+                <div class="countdown-label"><strong>Next Update</strong></div>
             </div>
-
-
-            <!-- Alert DEFCON -->
-            <div class="defcon-wrapper debug-border">
-              <div class="defcon-level" data-level="5">5</div>
-              <div class="defcon-level" data-level="4">4</div>
-              <div class="defcon-level" data-level="3">3</div>
-              <div class="defcon-level" data-level="2">2</div>
-              <div class="defcon-level" data-level="1">1</div>
+            <div class="box scanline">
+                <h3>Alerts</h3>
+                    <p style="text-decoration: none; text-transform: uppercase;">
+                        <a href="https://finance.yahoo.com/economy/articles/tables-turned-florida-texas-biggest-175326835.html" target="_blank">[04-22] The tables have turned: Florida and Texas are the biggest losers in the housing market as Ohio emerges a surprise winner</a><br>
+                        <a href="https://finance.yahoo.com/markets/crypto/articles/breaking-billionaire-investor-sues-trump-002052827.html" target="_blank">[04-22] Billionaire Investor Sues Trump Crypto Venture for Fraud, Says It’s on ‘Verge of Collapse’</a><br>
+                        <a href="https://finance.yahoo.com/markets/stocks/articles/warren-buffett-dumped-77-amazon-003700673.html" target="_blank">[04-21] Warren Buffett dumped 77% of Amazon to buy surging media stock</a><br>
+                        <a href="https://www.wsj.com/livecoverage/iran-war-israel-us-strait-hormuz-2026" target="_blank">[04-21] Trump Unlikely to Extend Cease-Fire as Deadline Looms</a><br>
+                        <a href="https://finance.yahoo.com/markets/stocks/article/apple-ceo-tim-cook-stepping-down-to-be-succeeded-by-john-ternus-204237479.html">[04-20] Apple CEO Tim Cook stepping down, to be succeeded by John Ternus</a><br>
+                        <a href="https://finance.yahoo.com/news/oil-surges-back-up-as-iran-says-strait-of-hormuz-is-closed-us-navy-seizes-iranian-vessel-130246378.html">[04-20] Oil surges back up as Iran says Strait of Hormuz is closed, US Navy seizes Iranian vessel</a><br>
+                        <a href="https://www.bbc.com/news/articles/c5yjzy35825o?at_medium=RSS&at_campaign=rss" target="_blank">[04-19] Oil prices rise after Trump says Iranian ship seized</a><br>
+                        <a href="https://www.wsj.com/livecoverage/iran-war-us-talks-2026" target="_blank">[04-19] Tehran’s Top Negotiator Says Iran and U.S. Are Far From Deal</a><br>
+                        <a href="https://finance.yahoo.com/economy/policy/articles/pentagon-wants-gm-ford-build-110500812.html?fr=sycsrp_catchall" target="_blank">[04-19] The Pentagon wants GM, Ford to build weapons and bombs — here’s what happened last time during World War II</a><br>
+                        <a href="https://www.marketwatch.com/story/most-u-s-farmers-cant-afford-all-the-fertilizer-they-need-this-year-opening-the-strait-of-hormuz-comes-too-late-0aa72790" target="_blank">[04-17] Most U.S. farmers can’t afford all the fertilizer they need this year. Opening the Strait of Hormuz comes too late</a><br>
+                        <a href="https://x.com/araghchi/status/2045121573124759713" target="_blank">[04-17] Iran Reopens Strait of Hormuz</a><br>
+                        <a href="https://thetranscript.substack.com/p/04-13-2026-the-end-of-civilization" target="_blank">[04-13] The End of Civilization</a><br>
+                    </p>
             </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- panel ÚNICO CON EFECTO MONITOR VIEJO -->
-        <div class="old-monitor-panel scanline">
-
-          <!-- Tabla GIRO con botones -->
-          <div class="carousel-row">
-            <button class="carousel-btn prev" id="prevGiroBtn">◀</button>
-            <div class="carousel-week-content">
-              <div class="week-header current-date" id="giroDateHeader"></div>
-              <div class="giro-table-container">
-                <table class="tracking-table" id="giroTable">
-                  <thead><tr><th>ASSET</th><th>Perf W</th><th>Perf M</th></tr></thead>
-                  <tbody id="giroTableBody"></tbody>
-                </table>
-              </div>
-            </div>
-            <button class="carousel-btn next" id="nextGiroBtn">▶</button>
-          </div>
-
-          <!-- Explicación REGIME SHIFT FORECAST LOGIC -->
-          <div class="defcon-label"><strong>REGIME SHIFT FORECAST LOGIC</strong></div>
-          <div class="table-label">
-            <div>TECH ←: no imminent shift. Calm.</div>
-            <div>↑ (MIXED): uncertain signals.</div>
-            <div>→ ENERGY: shift imminent. Crisis.</div>
-            <div>Divergence (Brent↑, USD↑, WTI↓) predicts the next major capital rotation from Tech toward Energy, and a potential global crisis: oil and food shortages, price spikes, layoffs, riots, and a stock market crash.</div>
-          </div>
-
-          <!-- Tabla DEFCON con botones -->
-          <div class="carousel-row">
-            <button class="carousel-btn prev" id="prevWeekBtn">◀</button>
-            <div class="carousel-week-content">
-              <div class="week-header current-date" id="weekDateHeader"></div>
-              <div class="mini-table-container">
-                <table class="tracking-table mini" id="weekTable">
-                  <thead><tr><th>ASSET</th><th>Perf W</th></tr></thead>
-                  <tbody id="weekTableBody"></tbody>
-                </table>
-              </div>
-            </div>
-            <button class="carousel-btn next" id="nextWeekBtn">▶</button>
-          </div>
-
-          <!-- Explicación DEFCON -->
-          <div class="defcon-label"><strong>CURRENT THREAT LEVEL</strong></div>
-          <div class="table-label">
-            <div>DEFCON level (1–5) is determined by comparing both values:</div>
-            <div>🟥 DEFCON 1: Tech < -2.5% AND Energy > +2.5% (severe divergence)</div>
-            <div>🟧 DEFCON 2: Tech < 0% AND Energy > 0% (moderate divergence)</div>
-            <div>🟨 DEFCON 3: Tech < 0% AND Energy < 0% (both negative)</div>
-            <div>🟦 DEFCON 4: Tech > 0% AND Energy < 0% (calm)</div>
-            <div>🟩 DEFCON 5: all other cases (peace / low threat)</div>
-          </div>
-          <div class="table-label">Table shows weekly performance (% change) of Energy and Technology sectors. Cell colors (green/red/gray) indicate trend vs previous week, not the threat level.</div>
-        </div>
-
-      </div> <!-- fin left-column -->
-
-      <!-- COLUMNA DERECHA (sidebar) -->
-      <div class="right-column">
-        <div class="sidebar">
-          <div class="countdown-container debug-border" id="countdownTimer">
-            <div class="time-block">
-              <span id="hours">00</span> :
-              <span id="minutes">00</span> :
-              <span id="seconds">00</span>
-            </div>
-            <div class="countdown-label"><strong>Next Update</strong></div>
-          </div>
-
-          <div class="box scanline">
-            <p style="text-decoration: none; text-transform: uppercase;">
-              <a href="https://finance.yahoo.com/economy/articles/tables-turned-florida-texas-biggest-175326835.html" target="_blank">[04-22] The tables have turned: Florida and Texas are the biggest losers in the housing market as Ohio emerges a surprise winner</a><br>
-              <a href="https://finance.yahoo.com/markets/crypto/articles/breaking-billionaire-investor-sues-trump-002052827.html" target="_blank">[04-22] Billionaire Investor Sues Trump Crypto Venture for Fraud, Says It’s on ‘Verge of Collapse’</a><br>
-              <a href="https://finance.yahoo.com/markets/stocks/articles/warren-buffett-dumped-77-amazon-003700673.html" target="_blank">[04-21] Warren Buffett dumped 77% of Amazon to buy surging media stock</a><br>
-              <a href="https://www.wsj.com/livecoverage/iran-war-israel-us-strait-hormuz-2026" target="_blank">[04-21] Trump Unlikely to Extend Cease-Fire as Deadline Looms</a><br>
-              <a href="https://finance.yahoo.com/markets/stocks/article/apple-ceo-tim-cook-stepping-down-to-be-succeeded-by-john-ternus-204237479.html">[04-20] Apple CEO Tim Cook stepping down, to be succeeded by John Ternus</a><br>
-              <a href="https://finance.yahoo.com/news/oil-surges-back-up-as-iran-says-strait-of-hormuz-is-closed-us-navy-seizes-iranian-vessel-130246378.html">[04-20] Oil surges back up as Iran says Strait of Hormuz is closed, US Navy seizes Iranian vessel</a><br>
-              <a href="https://www.bbc.com/news/articles/c5yjzy35825o?at_medium=RSS&at_campaign=rss" target="_blank">[04-19] Oil prices rise after Trump says Iranian ship seized</a><br>
-              <a href="https://www.wsj.com/livecoverage/iran-war-us-talks-2026" target="_blank">[04-19] Tehran’s Top Negotiator Says Iran and U.S. Are Far From Deal</a><br>
-              <a href="https://finance.yahoo.com/economy/policy/articles/pentagon-wants-gm-ford-build-110500812.html?fr=sycsrp_catchall" target="_blank">[04-19] The Pentagon wants GM, Ford to build weapons and bombs — here’s what happened last time during World War II</a><br>
-              <a href="https://www.marketwatch.com/story/most-u-s-farmers-cant-afford-all-the-fertilizer-they-need-this-year-opening-the-strait-of-hormuz-comes-too-late-0aa72790" target="_blank">[04-17] Most U.S. farmers can’t afford all the fertilizer they need this year. Opening the Strait of Hormuz comes too late</a><br>
-              <a href="https://x.com/araghchi/status/2045121573124759713" target="_blank">[04-17] Iran Reopens Strait of Hormuz</a><br>
-              <a href="https://thetranscript.substack.com/p/04-13-2026-the-end-of-civilization" target="_blank">[04-13] The End of Civilization</a><br>
-            </p>
-          </div>
-
-          <div class="alerts-container">
-            <div><h3 class="alerts-label">Alerts</h3></div>
-          </div>
-
-          <div class="box scanline" data-tooltip="Content under construction">
-            <p>WATER: 1G/DAY · ROTATE CANS Q2<br>FUEL STABILIZER · PHYSICAL GOLD</p>
-          </div>
-          <div class="prepper-container">
-            <div><h3 class="prepper-label">Prepper</h3></div>
-          </div>
-
-          <div class="box scanline">
-            <p>
-              <a href="https://www.zerohedge.com/">ZeroHedge</a><br>
-              <a href="https://shtfplan.net">SHTFplan</a><br>
-              <a href="https://thetranscript.substack.com">The Transcript (Substack)</a>
-            </p>
-          </div>
-          <div class="links-container">
-            <div><h3 class="links-label">Links</h3></div>
-          </div>
-        </div>
-      </div> <!-- fin right-column -->
-    </div> <!-- fin two-column-grid -->
-
-    <div class="footer">
-      <div class="footerIn">
-        <p>† SATURDOOM · not financial advice †</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('navbar-placeholder').innerHTML = data)
-      .catch(() => document.getElementById('navbar-placeholder').innerHTML = '<div class="navbar">⚠️ Navbar Not Found</div>');
-  </script>
-  <script src="script.js"></script>
-  <script>
-    function getNextSaturday() {
-      const now = new Date();
-      const nextSat = new Date();
-      nextSat.setDate(now.getDate() + ((6 - now.getDay() + 7) % 7 || 7));
-      nextSat.setHours(0, 0, 0, 0);
-      return nextSat;
-    }
-    function updateCountdown() {
-      const now = new Date();
-      const target = getNextSaturday();
-      const diff = target - now;
-      if (diff <= 0) {
-        document.getElementById('hours').innerText = '00';
-        document.getElementById('minutes').innerText = '00';
-        document.getElementById('seconds').innerText = '00';
-        return;
-      }
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (3600000)) / (1000 * 60));
-      const seconds = Math.floor((diff % (60000)) / 1000);
-      document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-</body>
+            <div class="box scanline">
+                <h3>Recommended</h3>
+                <p>
+                    <a href="https://www.zerohedge.com/">ZeroHedge</a><br>
+                    <a href="https://shtfplan.net">SHTFplan</a><br>
+                    <a href="https://thetranscript.substack.com">The Transcript (Substack)</a>
+                </p>
+            </div>        
+        </aside>
+        <footer>
+            <p>† SATURDOOM · not financial advice †</p>
+        </footer>
+        <script>
+            fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar-placeholder').innerHTML = data)
+            .catch(() => document.getElementById('navbar-placeholder').innerHTML = '<div class="navbar">⚠️ Navbar Not Found</div>');
+        </script>
+        <script src="script.js"></script>
+        <script>
+            function updateCountdown() {
+            const now = new Date();
+            let nextSaturday = new Date();
+            nextSaturday.setDate(now.getDate() + ((6 - now.getDay() + 7) % 7));
+            nextSaturday.setHours(0, 0, 0, 0);
+            if (now > nextSaturday) nextSaturday.setDate(nextSaturday.getDate() + 7);
+            
+            const diff = nextSaturday - now;
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            
+            document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        </script>
+    </body>
 </html>

@@ -49,7 +49,7 @@ html {
 }
 body {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 350px;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas:
   "navbar navbar"
@@ -69,7 +69,7 @@ nav {
 nav {
   display: grid;
   grid-area: navbar;
-  /*z-index: 10;*/
+  z-index: 10;
   position: sticky;
   top: 0;
   /*grid-auto-flow: column;   /* Fuerza distribución horizontal */
@@ -91,6 +91,7 @@ header {
   grid-area: header;
   position: sticky;
   top: 56.5px;
+  z-index: 10;
   /*height: calc(120.5px - 56.5px);*/
   padding: 3em;
   background-color: var(--console-panel-medium);
@@ -109,6 +110,7 @@ main {
 }
 aside {
   grid-area: sidebar;
+  padding: 1em;
   background-color: var(--console-panel-medium);
   border-top: .4rem solid var(--console-panel-light);
   border-right: .4rem solid var(--console-panel-dark);
@@ -117,6 +119,46 @@ aside {
   border-radius: .4rem;
   margin: 1em 5em 1em 0;
 }
+/* COUNTDOWN TIMER (retro 80s) - colores invertidos */
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: center;
+  /*background-color: var(--console-panel-medium);*/
+  /*border: 2px solid var(--console-panel-light);*/
+  /*border: 2px solid red;*/
+  /*border-radius: 1rem;*/
+  /*box-shadow: 3px 3px 10px var(--dark);*/
+  margin: 0 0 1.5rem 0;
+}
+.time-block {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-family: 'Orbitron','Courier New', monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: auto;
+  color: var(--dark);
+  background: var(--console-panel-light);
+  border-radius: 1rem;
+  box-shadow: 0 0 .1rem  var(--dark);
+  margin: 0;
+}
+.box {
+  color: var(--text-green);
+  padding: 1em;
+  background-color: var(--dark);
+  border: 2px solid var(--border-green);
+  border-radius: 1em;
+  margin: 1em 0 0 0;
+}
+.box a {
+  color: inherit;
+  text-decoration: none;
+}
+
 footer {
   grid-area: footer;
   padding: 3em;
@@ -141,11 +183,34 @@ footer {
     margin: 1.5em;
   }
   aside {
-    margin: 1.5em;
+    padding: 1.5em;
+    border-right: 0;
+    border-left: 0;
+    margin: 1.5em 0;
   }
 
 }
 
+/* Efecto scanline monitores (líneas horizontales tipo monitor retro) */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    transparent 0px,
+    transparent 1px,
+    rgba(0,0,0,0.1) 1px,
+    rgba(0,0,0,0.1) 2px
+  );
+  pointer-events: none;
+}
 
 /* ----------- HEADER ---------- */
 .Header {

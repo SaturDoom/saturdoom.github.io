@@ -1,14 +1,3 @@
-const sidebar = document.getElementById('sidebar')
-
-function toggleSidebar() {
-  sidebar.classList.toggle('show')
-}
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 800) {
-    document.getElementById('sidebar').classList.remove('show');
-  }
-});
-
 (function() {
   // ============================================================
   // DEFCON panel (Energy & Technology)
