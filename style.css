@@ -21,11 +21,21 @@
   --down-red: #ff7b7b;
   --neutral-grey: #c9c97a;
   --dashed-green: #4a8c3a;
-  --countdown-label: #7cb05c;
   --console-print: #c4b47c;
+  --console-panel-bright: #d4d0b8;
   --console-panel-light: #c4c0a8;
   --console-panel-medium: #a8a48c;
   --console-panel-dark: #949078;
+  --console-panel-shadow: #6a664a;
+  --lcd-white-on: #e8e8d8;
+  --lcd-white-off: #c8c8b8;
+  --lcd-green-on: #8bac0f;
+  --lcd-green-off: #4a5c08;
+  --lcd-blue-on: #7c9eb2;
+  --lcd-blue-off: #4a6a7a;
+  --orange-paint-light: #e6b87a;
+  --orange-paint-medium: #c98f47;
+  --orange-paint-dark: #a66f35;
   --paint-green-light: #4a4a2c;
   --paint-green-medium: #3d3d24;
   --paint-green-dark: #34341e;
@@ -33,6 +43,7 @@
   --paint-sepia-medium: #5a3f2f;
   --paint-sepia-dark: #4a3326;
   /* Sin Uso */
+  --countdown-label: #7cb05c;
   --defcon-rojo: ;
   --defcon-naranja: ;
   --defcon-amarillo: ;
@@ -93,12 +104,20 @@ header {
   top: 56.5px;
   z-index: 10;
   /*height: calc(120.5px - 56.5px);*/
-  padding: 3em;
+  font-family: "Inter Tight", sans-serif;
+  text-transform: none;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 5em;
+  color: var(--orange-paint-medium);
+  padding: .7em 0 0 0;
   background-color: var(--console-panel-medium);
   border-right: .4rem solid var(--console-panel-dark);
   border-bottom: .4rem solid var(--console-panel-dark);
   border-left: .4rem solid var(--console-panel-light);
 }
+
 main {
   grid-area: main;
   background-color: var(--console-panel-medium);
@@ -111,6 +130,8 @@ main {
 aside {
   grid-area: sidebar;
   padding: 1em;
+  display: grid;
+  gap: 1em;
   background-color: var(--console-panel-medium);
   border-top: .4rem solid var(--console-panel-light);
   border-right: .4rem solid var(--console-panel-dark);
@@ -119,39 +140,61 @@ aside {
   border-radius: .4rem;
   margin: 1em 5em 1em 0;
 }
-/* COUNTDOWN TIMER (retro 80s) - colores invertidos */
-.clock {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
+.aside-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
   text-align: center;
-  /*background-color: var(--console-panel-medium);*/
-  /*border: 2px solid var(--console-panel-light);*/
-  /*border: 2px solid red;*/
-  /*border-radius: 1rem;*/
-  /*box-shadow: 3px 3px 10px var(--dark);*/
-  margin: 0 0 1.5rem 0;
+  gap: .8em;
+  border-radius: .2em;
 }
-.time-block {
-  width: 100%;
-  padding: 0.5rem 0;
-  font-family: 'Orbitron','Courier New', monospace;
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: auto;
+.lcd-screen {
   color: var(--dark);
-  background: var(--console-panel-light);
-  border-radius: 1rem;
-  box-shadow: 0 0 .1rem  var(--dark);
+  padding: 0.5em;
+  background: var(--lcd-white-off);
+  /*background: var(--console-panel-light);*/
+  box-shadow: inset .1em .1em .5em var(--console-panel-shadow),  /* sombra clara izquierda */
+              inset -.1em -.1em .5em var(--console-panel-shadow);  /* sombra oscura derecha */
+  border-top: .1em solid var(--console-panel-dark);
+  border-right: .1em solid var(--console-panel-light);
+  border-bottom: .1em solid var(--console-panel-light);
+  border-left: .1em solid var(--console-panel-dark);
+  border-radius: .2em;
   margin: 0;
 }
+.lcd-screen a {
+  text-decoration: none;
+  color: var(--dark);
+}
+.clock {
+  font-family: 'Orbitron','Courier New', monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: auto;
+}
+.primary-label {
+  padding: .2em 0 .3em 0;
+  background-color: var(--orange-paint-medium);
+}
+.lcd-screen p {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  text-align: start;
+}
+
+.secondary-label {
+  color: var(--lcd-white-off);
+  padding: 0 0 0 .5em;
+  background-color: var(--paint-sepia-dark);
+}
+
 .box {
   color: var(--text-green);
   padding: 1em;
   background-color: var(--dark);
   border: 2px solid var(--border-green);
-  border-radius: 1em;
+  border-radius: .4em;
   margin: 1em 0 0 0;
 }
 .box a {
@@ -212,52 +255,8 @@ footer {
   pointer-events: none;
 }
 
-/* ----------- HEADER ---------- */
-.Header {
-  background-color: var(--console-panel-dark);
-}
-.Navbar {
-  padding: .5rem;
-  color: var(--text-green);
-  background-color: var(--dark);
-}
-.Logo {
-  font-size: 6.1rem;
-  font-weight: bolder;
-  color: var(--console-panel-light);
-  padding: 1.5rem;
-}
 
-/* ---------------- CONSOLE -------------------- */
-.Console {
-  display: grid;
-  grid-template-columns: minmax(575px, auto) 1fr;
-  padding: 0 2em;
-  max-width: 1024px;
-  /*padding-left: min(50px, 7%);
-  padding-right: min(50px, 7%);*/
-  border: 2px solid purple;
-}
-.Panel {
 
-  /*max-width: 1024px;*/
-  color: var(--console-panel-light);
-  gap: 2em;
-  /*padding: 0 2em;*/
-  background-color: var(--console-panel-medium);
-  border: 2px solid red;
-}
-
-h1 {
-  margin: 30px, 0;
-}
-.card {
-  color: var(--text-green);
-  padding: 2em;
-  background-color: var(--trtd);
-  border: solid var(--border-green);
-  border-radius: 1rem;
-}
 
 
 /*.debug-border {

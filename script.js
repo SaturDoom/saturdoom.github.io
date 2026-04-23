@@ -143,7 +143,7 @@
     
     ctx.clearRect(0, 0, width, height);
     ctx.save();
-    // Desplazar al centro en x, y desplazar hacia abajo en y, y rotar -90° counterclockwise
+    // Desplazar al centro en x, y desplazar hacia abajo en y, y rotar -90° counterlcd-screenwise
     const yOffset = 158;
     ctx.translate(width / 2, height / 2 + yOffset);
     ctx.rotate(-Math.PI / 2);
