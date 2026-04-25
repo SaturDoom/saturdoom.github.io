@@ -1,13 +1,15 @@
 (function() {
   // ============================================================
-  // DEFCON panel (Energy & Technology)
+  // DEFCON PANEL (Energy & Technology)
   // ============================================================
   const weeksData = [
-    { date: "2026-04-13", scan: "04-18", energy: -3.85, tech: 7.73},
+    { date: "2026-04-20", scan: "04-25", energy: -5, tech: -3},
     // Agrega más semanas aquí (más recientes primero)
+    { date: "2026-04-13", scan: "04-18", energy: -3.85, tech: 7.73},
+
   ];
 
-  let currentIndex = 0;
+  let currentIndex = 0;  // índice único
 
   const dateHeader = document.getElementById('weekDateHeader');
   const tableBody = document.getElementById('weekTableBody');
@@ -29,6 +31,7 @@
     const energyTrend = getTrendClass(week.energy, prevWeek?.energy);
     const techTrend = getTrendClass(week.tech, prevWeek?.tech);
 
+    // La fecha se actualizará también desde GIRO, pero la ponemos acá igual
     dateHeader.innerHTML = `🪖 WEEK ${week.date} · SCAN ${week.scan}`;
     const energyDisplay = (week.energy > 0 ? `+${week.energy}%` : `${week.energy}%`);
     const techDisplay = (week.tech > 0 ? `+${week.tech}%` : `${week.tech}%`);
@@ -60,10 +63,11 @@
     const activeLevel = document.querySelector(`.defcon-level[data-level="${level}"]`);
     if (activeLevel) activeLevel.classList.add('active');
 
-    updateDefconButtons();
+    // Actualizar estado de botones (común)
+    updateButtons();
   }
 
-  function updateDefconButtons() {
+  function updateButtons() {
     if (currentIndex === 0) {
       prevBtn.setAttribute('disabled', 'disabled');
       prevBtn.classList.add('disabled');
@@ -84,6 +88,7 @@
     if (currentIndex + 1 < weeksData.length) {
       currentIndex++;
       renderWeek(currentIndex);
+      renderGiro(currentIndex);  // actualizar también el GIRO
     }
   }
 
@@ -91,6 +96,7 @@
     if (currentIndex - 1 >= 0) {
       currentIndex--;
       renderWeek(currentIndex);
+      renderGiro(currentIndex);
     }
   }
 
@@ -107,25 +113,27 @@
     if (idx !== -1) currentIndex = idx;
   }
 
-  renderWeek(currentIndex);
-
   // ============================================================
-  // GIRO panel (Brent, WTI, USD) con gráfico de aguja semicircular
+  // GIRO PANEL (Brent, WTI, USD) con gráfico de aguja semicircular
   // ============================================================
   const giroData = [
-    { //date: "2026-04-13", scan: "04-18",
+    { date: "2026-04-20", scan: "04-25",
+      brent_w: -6, brent_m: 0,
+      wti_w: 4.5, wti_m: 3.24,
+      usd_w: 5, usd_m: -3 },
+    // Agrega más semanas aquí (más recientes primero)
+      { date: "2026-04-13", scan: "04-18",
       brent_w: -5.06, brent_m: -7.8,
       wti_w: -11.24, wti_m: -10.24,
       usd_w: -0.55, usd_m: -1.44 },
-    // Agrega más semanas aquí (más recientes primero)
   ];
 
-  let currentGiroIndex = 0;
-
-  //const giroDateHeader = document.getElementById('giroDateHeader');
+  // Ya no usamos currentGiroIndex, usamos currentIndex
   const giroTableBody = document.getElementById('giroTableBody');
-  //const prevGiroBtn = document.getElementById('prevGiroBtn');
-  //const nextGiroBtn = document.getElementById('nextGiroBtn');
+  // Nota: en tu HTML no existe #giroDateHeader pero no importa, no lo usaremos
+  // Si existe, podemos actualizarlo también, pero vos querés una sola fecha.
+  // Por las dudas, si existe, lo actualizamos igual
+  const giroDateHeader = document.getElementById('giroDateHeader');
 
   function getGiroDirection(brent_w, wti_w, usd_w) {
     if (brent_w > 1.0 && usd_w > 0.5 && wti_w < -0.5) return 'right';
@@ -133,7 +141,7 @@
     return 'up';
   }
 
-  // Dibuja el semicírculo rotado 90° antihorario, sin recortes
+  // Dibuja el semicírculo (exactamente igual, sin cambios)
   function drawGauge(direction) {
     const canvas = document.getElementById('gaugeCanvas');
     if (!canvas) return;
@@ -143,12 +151,11 @@
     
     ctx.clearRect(0, 0, width, height);
     ctx.save();
-    // Desplazar al centro en x, y desplazar hacia abajo en y, y rotar -90° counterlcd-screenwise
-    const yOffset = 158;
+    const yOffset = 76;
     ctx.translate(width / 2, height / 2 + yOffset);
     ctx.rotate(-Math.PI / 2);
     
-    const radius = Math.min(width, height) * .9;
+    const radius = Math.min(width, height) * .98;
     const centerX = 0;
     const centerY = 0;
     const startAngle = -Math.PI / 2;
@@ -156,28 +163,25 @@
     const sectorAngle = sweep / 3;
     
     const colors = {
-      left: '#88ff88',   // TECH
-      center: '#ffff88', // UNCERTAIN
-      right: '#ff8888'   // ENERGY
+      left: '#c8c8b8',
+      center: '#c8c8b8',
+      right: '#c8c8b8'
     };
     
-    // Configurar sombra para los sectores
-    //ctx.shadowBlur = 4;
-    //ctx.shadowColor = 'rgba(100, 100, 100, 0.6)';
-    //ctx.shadowOffsetX = 4;
-    //ctx.shadowOffsetY = 1;
+    ctx.shadowBlur = 4;
+    ctx.shadowColor = 'rgba(100, 100, 100, 0.6)';
+    ctx.shadowOffsetX = 4;
+    ctx.shadowOffsetY = 1;
 
-    // Sector izquierdo (TECH)
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, startAngle, startAngle + sectorAngle);
     ctx.lineTo(centerX, centerY);
     ctx.fillStyle = colors.left;
     ctx.fill();
-    ctx.strokeStyle = '#c4c0a8';
+    ctx.strokeStyle = '#010501';
     ctx.lineWidth = 1;
     ctx.stroke();
     
-    // Sector central (UNCERTAIN)
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, startAngle + sectorAngle, startAngle + 2 * sectorAngle);
     ctx.lineTo(centerX, centerY);
@@ -185,7 +189,6 @@
     ctx.fill();
     ctx.stroke();
     
-    // Sector derecho (ENERGY)
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, startAngle + 2 * sectorAngle, startAngle + 3 * sectorAngle);
     ctx.lineTo(centerX, centerY);
@@ -193,20 +196,16 @@
     ctx.fill();
     ctx.stroke();
     
-    // Borde exterior
-    //ctx.beginPath();
-    //ctx.arc(centerX, centerY, radius, startAngle, startAngle + sweep);
-    //ctx.strokeStyle = '#6bc84b';
-    //ctx.lineWidth = 2;
-    //ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, startAngle, startAngle + sweep);
+    ctx.strokeStyle = '#010501';
+    ctx.lineWidth = 2;
+    ctx.stroke();
     
-    // Restaurar sombras antes de dibujar la aguja
-    //ctx.shadowBlur = 0;
-    //ctx.shadowOffsetX = 0;
-    //ctx.shadowOffsetY = 0;
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
 
-
-    // Ángulo de la aguja
     let angle;
     if (direction === 'left') {
       angle = startAngle + sectorAngle / 2;
@@ -220,22 +219,21 @@
     const needleX = Math.cos(angle) * needleLength;
     const needleY = Math.sin(angle) * needleLength;
     
-    ctx.shadowOffsetX = 6;   // desplazamiento derecha
-    ctx.shadowOffsetY = 4;   // desplazamiento abajo
+    ctx.shadowOffsetX = 4;
+    ctx.shadowOffsetY = 1;
     ctx.shadowBlur = 6;
-    ctx.shadowColor = '#010501';
+    ctx.shadowColor = 'rgba(100, 100, 100, 0.6)';
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(needleX, needleY);
-    ctx.strokeStyle = '#4a4a2c';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#010501';
+    ctx.lineWidth = 3;
     ctx.stroke();
-    ctx.shadowBlur = 0; // restaurar
+    ctx.shadowBlur = 0;
     
-    // Círculo central
     ctx.beginPath();
     ctx.arc(0, 0, 6, 0, 2 * Math.PI);
-    ctx.fillStyle = '#4a4a2c';
+    ctx.fillStyle = '#010501';
     ctx.fill();
     
     ctx.restore();
@@ -244,7 +242,13 @@
   function renderGiro(index) {
     const w = giroData[index];
     if (!w) return;
-    giroDateHeader.innerHTML = `🪖 WEEK ${w.date} · SCAN ${w.scan}`;
+    // Actualizar fecha única también desde GIRO (por si acaso)
+    if (dateHeader && w.date) {
+      dateHeader.innerHTML = `🪖 WEEK ${w.date} · SCAN ${w.scan}`;
+    }
+    if (giroDateHeader) {
+      giroDateHeader.innerHTML = `🪖 WEEK ${w.date} · SCAN ${w.scan}`;
+    }
 
     const assets = [
       { name: "BRENT", w: w.brent_w, m: w.brent_m },
@@ -265,84 +269,9 @@
 
     const direction = getGiroDirection(w.brent_w, w.wti_w, w.usd_w);
     drawGauge(direction);
-    updateGiroButtons();
   }
 
-  function updateGiroButtons() {
-    if (currentGiroIndex === 0) {
-      prevGiroBtn.setAttribute('disabled', 'disabled');
-      prevGiroBtn.classList.add('disabled');
-    } else {
-      prevGiroBtn.removeAttribute('disabled');
-      prevGiroBtn.classList.remove('disabled');
-    }
-    if (currentGiroIndex === giroData.length - 1) {
-      nextGiroBtn.setAttribute('disabled', 'disabled');
-      nextGiroBtn.classList.add('disabled');
-    } else {
-      nextGiroBtn.removeAttribute('disabled');
-      nextGiroBtn.classList.remove('disabled');
-    }
-  }
-
-  function prevGiro() {
-    if (currentGiroIndex + 1 < giroData.length) {
-      currentGiroIndex++;
-      renderGiro(currentGiroIndex);
-    }
-  }
-
-  function nextGiro() {
-    if (currentGiroIndex - 1 >= 0) {
-      currentGiroIndex--;
-      renderGiro(currentGiroIndex);
-    }
-  }
-
-  prevGiroBtn.addEventListener('click', prevGiro);
-  nextGiroBtn.addEventListener('click', nextGiro);
-
-  function getGiroIndexByDate(dateStr) {
-    return giroData.findIndex(week => week.date === dateStr);
-  }
-  if (weekParam) {
-    const giroIdx = getGiroIndexByDate(weekParam);
-    if (giroIdx !== -1) currentGiroIndex = giroIdx;
-  }
-
-  renderGiro(currentGiroIndex);
-
-  // ============================================================
-  // NUEVO: Redimensionado automático del canvas para móvil
-  // ============================================================
-  function resizeCanvasAndRedraw() {
-    const canvas = document.getElementById('gaugeCanvas');
-    if (!canvas) return;
-    const container = canvas.parentElement; // .giro-container
-    if (!container) return;
-    const rect = container.getBoundingClientRect();
-    if (rect.width === 0) return;
-    // Establecer el tamaño real del canvas (en píxeles) igual al ancho del contenedor
-    //canvas.width = rect.width;
-    //canvas.height = rect.width * 0.5; // mantiene la proporción del semicírculo
-    canvas.width = 600;
-    canvas.height = 300;
-    // Volver a dibujar con la dirección actual
-    const w = giroData[currentGiroIndex];
-    if (w) {
-      const direction = getGiroDirection(w.brent_w, w.wti_w, w.usd_w);
-      drawGauge(direction);
-    }
-  }
-
-  // Redibujar al cargar (después de que el DOM esté listo)
-  window.addEventListener('load', function() {
-    resizeCanvasAndRedraw();
-  });
-  window.addEventListener('resize', function() {
-    setTimeout(resizeCanvasAndRedraw, 200);
-  });
-  
-  // También llamar una vez ahora por si el load ya ocurrió
-  setTimeout(resizeCanvasAndRedraw, 100);
+  // Inicializar ambos paneles con el mismo índice
+  renderWeek(currentIndex);
+  renderGiro(currentIndex);
 })();

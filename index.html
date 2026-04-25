@@ -12,47 +12,96 @@
     <body>
         <nav id="navbar-placeholder"></nav>
         <header>Saturdoom</header>
+
         <main>
+            <!-- Regime Shift Gauge -->
             <div class="main-container debug-border">
-                <div class="lcd-screen">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="gauge-container">
+                    <div class="carousel-container">
+                        <div class="carousel-week-contenta">
+                            <div class="giro-direction">
+                                <canvas id="gaugeCanvas" class="debug-border"></canvas>
+                                <div class="giro-graphic">
+                                    <div class="secondary-label gauge-label debug-border">
+                                        <p><strong>TECH</strong></p>
+                                        <p><strong>UNCERTAIN</strong></p>
+                                        <p><strong>ENERGY</strong></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>                                                    
+                    </div>      
                 </div>
-                    <span class="primary-label"><strong>Regime Shift Early Warning</strong></span>
+
+                <!-- Regime Shift Table -->
+                <div class="lcd-screen">
+                    <div class="giro-table-container debug-border">
+                        <table class="tracking-table mini" id="giroTable">
+                        <thead><tr><th>ASSET</th><th>Perf W</th><th>Perf M</th></tr></thead>
+                        <tbody id="giroTableBody"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="table-label">
+                    <div class="secondary-label"><strong>Forecast Logic</strong></div>
                     <p><strong>TECH ←:</strong> no imminent shift. Calm.</p>
                     <p><strong>↑ (MIXED):</strong> uncertain signals.</p>
                     <p><strong>→ ENERGY:</strong> shift imminent. Crisis.</p>
-                <div class="lcd-screen">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                    <span class="primary-label"><strong>Forecast Logic</strong></span>
-                    <p><strong>Divergence (Brent↑, USD↑, WTI↓) predicts the next major capital rotation from Tech toward Energy, and a potential global crisis:</strong></p><p>Oil and food shortages, price spikes, layoffs, riots, and a stock market crash.</p>
+                    <p><strong>Divergence (Brent↑, USD↑, WTI↓) predicts the next major capital rotation from Tech toward Energy, and a potential global crisis:</strong></p>
+                    <p><strong>Oil and food shortages, price spikes, layoffs, riots, and a stock market crash.</strong></p>
                 </div>
             </div>
+            <span class="primary-label"><strong>Regime Shift Early Warning</strong></span>
+
+            <!-- Date & Buttons -->
+            <div>
+                <button class="carousel-btn prev debug-border" id="prevWeekBtn">◀</button>
+                <div class="week-header current-date" id="weekDateHeader"></div>
+                <button class="carousel-btn next debug-border" id="nextWeekBtn">▶</button>
+            </div>
+
+            <!-- Panel DEFCON -->
             <div class="main-container debug-border">
-                <div class="defcon-container">
+                <!--<div class="defcon-panel">-->
+                <div class="carousel-week-contentb">
+                    <div class="defcon-container debug-border">
+                        <div class="defcon-level" data-level="5">5</div>
+                        <div class="defcon-level" data-level="4">4</div>
+                        <div class="defcon-level" data-level="3">3</div>
+                        <div class="defcon-level" data-level="2">2</div>
+                        <div class="defcon-level" data-level="1">1</div>
+                    </div>
+                                        
 
-                        <span class="defcon-level" data-level="5">5</span>
-                        <span class="defcon-level" data-level="4">4</span>
-                        <span class="defcon-level" data-level="3">3</span>
-                        <span class="defcon-level" data-level="2">2</span>
-                        <span class="defcon-level" data-level="1">1</span>
+                    <div class="secondary-label debug-border"><strong>CURRENT THREAT LEVEL</strong></div>                    
+                    <div class="mini-table-container debug-border">
+                        <table class="tracking-table mini" id="weekTable">
+                        <thead><tr><th>ASSET</th><th>Perf W</th></tr></thead>
+                        <tbody id="weekTableBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="table-label">
+                        <div class="secondary-label"><strong>Level 1–5 is Determined by Comparing Tech and Energy Values:</strong></div>
+                        <p>🟥 <strong>DEFCON 1:</strong> Tech < -2.5% AND Energy > +2.5% (severe divergence)</p>
+                        <p>🟧 <strong>DEFCON 2:</strong> Tech < 0% AND Energy > 0% (moderate divergence)</p>
+                        <p>🟨 <strong>DEFCON 3:</strong> Tech < 0% AND Energy < 0% (both negative)</p>
+                        <p>🟦 <strong>DEFCON 4:</strong> Tech > 0% AND Energy < 0% (calm)</p>
+                        <p>🟩 <strong>DEFCON 5:</strong> all other cases (peace / low threat)</p>
+                        <div class="secondary-label"><strong>Threat Level Table</strong></div>
+                        <div>Table shows weekly performance (% change) of Energy and Technology sectors. Cell colors (green/red/gray) indicate trend vs previous week, not the threat level.</div>
+                    </div>
+            </div>
 
-                </div>
-                    <span class="primary-label"><strong>DEFCON Level</strong></span>
-                    <p><strong>TECH ←:</strong> no imminent shift. Calm.</p>
-                    <p><strong>↑ (MIXED):</strong> uncertain signals.</p>
-                    <p><strong>→ ENERGY:</strong> shift imminent. Crisis.</p>
-                <div class="lcd-screen">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                    <span class="primary-label"><strong>Level 1–5 is Determined by Comparing Both Values:</strong></span>
-                    <p>🟥 <strong>DEFCON 1:</strong> Tech < -2.5% AND Energy > +2.5% (severe divergence)</p>
-                    <p>🟧 <strong>DEFCON 2:</strong> Tech < 0% AND Energy > 0% (moderate divergence)</p>
-                    <p>🟨 <strong>DEFCON 3:</strong> Tech < 0% AND Energy < 0% (both negative)</p>
-                    <p>🟦 <strong>DEFCON 4:</strong> Tech > 0% AND Energy < 0% (calm)</p>
-                    <p>🟩 <strong>DEFCON 5:</strong> all other cases (peace / low threat)</p>
+
+                <span class="primary-label"><strong>DEFCON Level</strong></span>
+
                 </div>
             </div>
+
+
         </main>
 
         <aside>
