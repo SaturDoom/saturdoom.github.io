@@ -33,6 +33,9 @@
   --lcd-green-off: #4a5c08;
   --lcd-blue-on: #7c9eb2;
   --lcd-blue-off: #4a6a7a;
+  --lcd-icon-dark: #646464;
+  --lcd-digit-dark: #010501;
+  --lcd-shadow: rgba(100, 100, 100, 0.6);
   --orange-paint-light: #e6b87a;
   --orange-paint-medium: #c98f47;
   --orange-paint-dark: #a66f35;
@@ -145,7 +148,6 @@ main {
   justify-content: center;
   color: var(--dark);
   padding: 0;
-  /*background: var(--console-panel-light);*/
   box-shadow: inset .1em .1em .5em var(--console-panel-shadow),  /* sombra clara izquierda */
               inset -.1em -.1em .5em var(--console-panel-shadow);  /* sombra oscura derecha */
   border-top: .1em solid var(--console-panel-dark);
@@ -159,7 +161,6 @@ main {
   justify-content: center;
   color: var(--dark);
   padding: 0.5em 0.5em 0 0.5em;
-  /*background: var(--console-panel-light);*/
   box-shadow: inset .1em .1em .5em var(--console-panel-shadow),  /* sombra clara izquierda */
               inset -.1em -.1em .5em var(--console-panel-shadow);  /* sombra oscura derecha */
   border-top: .1em solid var(--console-panel-dark);
@@ -168,6 +169,20 @@ main {
   border-left: .1em solid var(--console-panel-dark);
   border-radius: .2em;
   margin: 0;
+}
+.date-buttons {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 1em;
+}
+.current-date {
+  padding: .7em;
+}
+.current-date, .lcd-label{
+  background-color: var(--lcd-digit-dark); 
+  color: var(--lcd-white-off); 
+  font-weight: bold; 
+  padding: .3em;
 }
 .defcon-level {
   font-size: 3.5rem;
@@ -202,9 +217,8 @@ aside {
 
 .lcd-screen {
   /*color: var(--dark);*/
-  padding: 0.5em;
-  background: var(--lcd-white-off);
-  /*background: var(--console-panel-light);*/
+  padding: 1em;
+  background-color: var(--lcd-white-off);
   box-shadow: inset .1em .1em .5em var(--console-panel-shadow),  /* sombra clara izquierda */
               inset -.1em -.1em .5em var(--console-panel-shadow);  /* sombra oscura derecha */
   border-top: .1em solid var(--console-panel-dark);
@@ -218,7 +232,15 @@ aside {
   text-decoration: none;
   color: var(--dark);
 }
+.lcd-screen p {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  text-align: start;
+}
 .clock {
+  display: inline;
+
   font-family: 'Orbitron','Courier New', monospace;
   font-size: 1.5em;
   font-weight: bold;
@@ -228,12 +250,7 @@ aside {
   padding: .2em 0 .3em 0;
   background-color: var(--orange-paint-medium);
 }
-.lcd-screen p {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  text-align: start;
-}
+
 
 .secondary-label {
   display: flex;
@@ -253,38 +270,28 @@ aside {
 }
 
 /* --------- Tables --------- */
-.tracking-table.mini {
-  /*width: 100%;*/
-  /*max-width: none;*/
-  /*margin: 0 auto;*/
-  /*font-size: 1.4rem;*/
+.tracking-table {
   border-collapse: collapse;
   table-layout: fixed;
+  text-align: center;
+  /*text-transform: uppercase;*/
+
 }
-.tracking-table.mini th,
-.tracking-table.mini td {
-  /*width: 50%;*/
-  /*font-size: 1.2rem;*/
-  /*padding: .25rem .25rem;*/
-  /*border: 1px solid var(--trtd);*/
-  /*text-align: center;*/
-}
-.tracking-table.mini th {
-  background: var(--lcd-white-off);
+
+.tracking-table th {
   color: var(--dark);
-  text-transform: uppercase;
+  background-color: var(--lcd-white-off);
+  box-shadow: 4px 4px 8px var(--lcd--shadow);
+
+ 
 }
-.tracking-table.mini td {
-  background: var(--lcd-white-off);
+.tracking-table td {
+  background-color: transparent;
+  text-shadow: 1px 1px 4px var(--lcd--shadow);
+  box-shadow: 4px 4px 8px var(--lcd--shadow);
+
 }
-.tracking-table.mini td:first-child,
-.tracking-table.mini th:first-child {
-  text-align: center;
-}
-.tracking-table.mini td:last-child,
-.tracking-table.mini th:last-child {
-  text-align: center;
-}
+
 
 
 
@@ -334,10 +341,7 @@ footer {
 }
 
 /* ESTILOS VIEJOS */
-/* También para los textos dentro de .table-label */
-.table-label p {
-  margin-bottom: 0.25rem;
-}
+
 /* ---------- GIRO PANEL SPECIFIC ---------- */
 #gaugeCanvas {
   width: 100%;
@@ -352,7 +356,7 @@ footer {
   display: grid;
   align-items: center;
   height: 100%;
-  background: var(--console-panel-medium);
+  background-color: var(--console-panel-medium);
 }
 
 .giro-graphic {
@@ -396,35 +400,48 @@ footer {
 .dir-arrow.arrow-right{ color: #ff8888; }
 
 /* tables inside giro panel */
-.giro-table-container {
-  margin: 0;
-}
+
 .tracking-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
-  background: var(--lcd-white-off);
-  font-size: 0.85rem;
-}
-.th {
-  background: var(--lcd-white-off);
-  border: 1px solid var(--dark);
+  max-width: none;
+  font-size: 1em;
+  text-align: center;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-  color: var(--dark);
+  color: var(--lcd-digit-dark);
+  background-color: transparent;
+  border: .1rem solid var(--lcd-icon-dark);
+  box-shadow: .4rem .4rem .4em var(--lcd-shadow),  /* sombra clara izquierda */
+  margin: 0 auto;
 }
+
 .tracking-table th,
 .tracking-table td {
-  border: 1px solid var(--dark);
+  width: 50%;
   padding: .25rem .25rem;
-  text-align: center;
-  background: var(--lcd-white-off);
+  border: .1rem solid var(--lcd-icon-dark);
+  box-shadow: .4rem .4rem .4em var(--lcd-shadow),  /* sombra clara izquierda */
+              0 0 .2em var(--lcd-shadow);  /* sombra oscura derecha */
 }
+
+.tracking-table th {
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--lcd-white-off);
+  background-color: var(--lcd-digit-dark);
+}
+
+
+
+
+
+
 .asset {
   text-align: left;
   font-weight: bold;
   padding-left: 10px;
-  background: var(--lcd-white-off);
+  background-color: var(--lcd-white-off);
 }
 
 /* color classes for performance (trend vs previous week) */
@@ -443,7 +460,7 @@ footer {
   justify-content: space-between;
   gap: 0.5rem;
   width: 100%;
-  background: transparent;
+  background-color: transparent;
   border: none;
   padding: 0;
   margin: 2em 0;
@@ -510,6 +527,10 @@ footer {
   margin: 1em;
   text-align: justify;
 }
+/* También para los textos dentro de .table-label */
+.table-label p {
+  margin-bottom: 0.25rem;
+}
 /* ---------- COMMON PANEL STYLES (DEFCON & GIRO) ---------- */
 .defcon-panel {
   display: flex;
@@ -520,7 +541,7 @@ footer {
   /* equal height for both panels */
   min-height: 944px;
   max-height: 844px;
-  background: var(--panel-bg);
+  background-color: var(--panel-bg);
   border: 2px solid var(--border-green) ;
   border-radius: 1rem;  
 }
@@ -553,17 +574,17 @@ footer {
   user-select: none;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--text-green);
+  color: var(--paint-sepia-medium);
   cursor: pointer;
   transition: 0.2s;
   padding: 0.5rem 0.5rem;
-  background: var(--panel-bg);
-  border: 1px solid var(--border-green);
+  background-color: var(--console-panel-medium);
+  /*border: 1px solid var(--border-green);*/
   border-radius: 4px;
   margin: 0 .5rem 0 .5rem;
 }
 .carousel-btn:hover {
-  background: #1a3a10;
+  background-color: #1a3a10;
   color: #ffffaa;
 }
 
@@ -576,7 +597,7 @@ footer {
 
 /* week header (date) */
 .week-header {
-  background: var(--bg-dark);
+  background-color: var(--bg-dark);
   display: inline-block;
   padding: 0;
   margin: 0;
@@ -584,63 +605,8 @@ footer {
   font-size: 1rem;
   font-weight: bold;
 }
-/* ---------- MINI TABLE (inside DEFCON panel) ---------- */
-.mini-table-container, .giro-table-container {
-  width: 100%;
-  margin: 1.5rem 0 1rem 0;
-}
-.tracking-table.mini {
-  width: 100%;
-  max-width: none;
-  margin: 0 auto;
-  font-size: 1.4rem;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-.tracking-table.mini th,
-.tracking-table.mini td {
-  width: 50%;
-  font-size: 1.2rem;
-  padding: .25rem .25rem;
-  border: 1px solid var(--trtd);
-  text-align: center;
-}
-.tracking-table.mini th {
-  background: var(--lcd-white-off);
-  color: var(--dark);
-  text-transform: uppercase;
-}
-.tracking-table.mini td {
-  background: var(--lcd-white-off);
-}
-.tracking-table.mini td:first-child,
-.tracking-table.mini th:first-child {
-  text-align: center;
-}
-.tracking-table.mini td:last-child,
-.tracking-table.mini th:last-child {
-  text-align: center;
-}
-/* Efecto scanline monitores (líneas horizontales tipo monitor retro) */
-.scanline {
-  position: relative;
-  overflow: hidden;
-}
-.scanline::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    transparent 0px,
-    transparent 1px,
-    rgba(0,0,0,0.1) 1px,
-    rgba(0,0,0,0.1) 2px
-  );
-  pointer-events: none;
-}
+
+
 /*.scroll {
   max-height: 400px;
   overflow-y: auto;

@@ -35,14 +35,11 @@
                 </div>
 
                 <!-- Regime Shift Table -->
-                <div class="lcd-screen">
-                    <div class="giro-table-container debug-border">
-                        <table class="tracking-table mini" id="giroTable">
-                        <thead><tr><th>ASSET</th><th>Perf W</th><th>Perf M</th></tr></thead>
-                        <tbody id="giroTableBody"></tbody>
-                        </table>
-                    </div>
-
+                <div class="lcd-screen debug-border">
+                    <table class="tracking-table" id="giroTable">
+                    <thead><tr><th>ASSET</th><th>Perf W</th><th>Perf M</th></tr></thead>
+                    <tbody id="giroTableBody"></tbody>
+                    </table>
                 </div>
 
                 <div class="table-label">
@@ -58,9 +55,9 @@
             </div>
 
             <!-- Date & Buttons -->
-            <div>
+            <div class="main-container date-buttons">
                 <button class="carousel-btn prev debug-border" id="prevWeekBtn">◀</button>
-                <span class="current-date" id="weekDateHeader" style="background-color:#5a3f2f; color: #c8c8b8; font-weight: bold; padding: .7em;"></span>
+                <span class="current-date" id="weekDateHeader"></span>
                 <button class="carousel-btn next debug-border" id="nextWeekBtn">▶</button>
             </div>
 
@@ -77,13 +74,17 @@
                     </div>
                                         
 
-                    <div class="secondary-label debug-border"><strong>CURRENT THREAT LEVEL</strong></div>                    
-                    <div class="mini-table-container debug-border">
-                        <table class="tracking-table mini" id="weekTable">
+                    <div class="secondary-label debug-border"><strong>CURRENT THREAT LEVEL</strong></div>
+                    
+                    <div class="lcd-screen debug-border">                   
+                        <table class="tracking-table" id="weekTable">
                         <thead><tr><th>ASSET</th><th>Perf W</th></tr></thead>
                         <tbody id="weekTableBody"></tbody>
                         </table>
                     </div>
+
+
+
                     <div class="table-label">
                         <div class="secondary-label"><strong>Level 1–5 is Determined by Comparing Tech and Energy Values:</strong></div>
                         <p>🟥 <strong>DEFCON 1:</strong> Tech < -2.5% AND Energy > +2.5% (severe divergence)</p>
@@ -118,7 +119,7 @@
             <div class="aside-container debug-border">
                 <div class="lcd-screen links-container">
                     <p>
-                        <span class="secondary-label">Alerts</span>
+                        <span class="lcd-label">Alerts</span>
                         <a href="https://finance.yahoo.com/sectors/technology/articles/elon-musk-admits-lied-tesla-185650996.html" target="_blank"><strong>[04-23]</strong> Elon Musk Admits He Lied to Tesla Customers’ Faces for Years About Self-Driving</a><br>
                         <a href="https://www.yahoo.com/news/articles/iran-more-capable-trump-admin-154441067.html" target="_blank"><strong>[04-23]</strong> Iran's military more capable than Trump admin. is acknowledging, sources say</a><br>
                         <a href="https://www.yahoo.com/finance/sectors/technology/articles/palantir-published-mini-manifesto-calling-070100565.html" target="_blank"><strong>[04-23]</strong> Palantir published a mini manifesto calling some cultures ‘harmful’ and ‘middling’ and said Silicon Valley has ‘a moral debt’ to the U.S.</a><br>
@@ -145,7 +146,7 @@
             <div class="aside-container debug-border" title="Content under construction">
                 <div class="lcd-screen">
                     <p>
-                        <span class="secondary-label">Prepper</span>
+                        <span class="lcd-label">Prepper</span>
 
                         Water: 1g/Day<br>Rotate Cans Q2<br>Fuel Stabilizer<br>Physical Gold
                     </p>
@@ -154,7 +155,7 @@
             <div class="aside-container debug-border">
                 <div class="lcd-screen">
                     <p>
-                        <span class="secondary-label">Recommended</span>
+                        <span class="lcd-label">Recommended</span>
                         <a href="https://www.zerohedge.com/">ZeroHedge</a><br>
                         <a href="https://shtfplan.net">SHTFplan</a><br>
                         <a href="https://thetranscript.substack.com">The Transcript (Substack)</a>

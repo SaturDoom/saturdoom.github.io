@@ -161,7 +161,7 @@
     ctx.translate(width / 2, height / 2 + yOffset);
     ctx.rotate(-Math.PI / 2);
     
-    const radius = Math.min(width, height) * .98;
+    const radius = Math.min(width, height) * .95;
     const centerX = 0;
     const centerY = 0;
     const startAngle = -Math.PI / 2;
@@ -174,7 +174,7 @@
       right: lcdWhiteOff
     };
     
-    ctx.shadowBlur = 4;
+    ctx.shadowBlur = 6;
     ctx.shadowColor = shadow;
     ctx.shadowOffsetX = 4;
     ctx.shadowOffsetY = 1;
@@ -227,7 +227,7 @@
     
     ctx.shadowOffsetX = 4;
     ctx.shadowOffsetY = 1;
-    ctx.shadowBlur = 6;
+    ctx.shadowBlur = 4;
     ctx.shadowColor = shadow;
     ctx.beginPath();
     ctx.moveTo(0, 0);
