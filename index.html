@@ -17,17 +17,13 @@
             <!-- Regime Shift Gauge -->
             <div class="main-container debug-border">
                 <div class="gauge-container">
-                    <!--<div class="carousel-container">-->
-                        <!--<div class="carousel-week-contenta">-->
-                            <div class="giro-direction debug-border">
-                                <canvas id="gaugeCanvas"></canvas>
-                            </div>
-                        <!--</div>-->                                                 
-                    <!--</div>-->   
+                    <div class="giro-direction debug-border">
+                        <canvas id="gaugeCanvas"></canvas>
+                    </div>
                 </div>
 
                 <div class="table-label">
-                    <div class="tertiary-label">
+                    <div class="secondary-label space-evenly">
                         <p><strong>TECH</strong></p>
                         <p><strong>UNCERTAIN</strong></p>
                         <p><strong>ENERGY</strong></p>
@@ -44,9 +40,9 @@
 
                 <div class="table-label">
                     <div class="secondary-label"><strong>Forecast Logic</strong></div>
-                    <p><strong>TECH ←:</strong> no imminent shift. Calm.</p>
-                    <p><strong>↑ (MIXED):</strong> uncertain signals.</p>
-                    <p><strong>→ ENERGY:</strong> shift imminent. Crisis.</p>
+                    <p><strong>TECH ←: no imminent shift. Calm.</strong></p>
+                    <p><strong>↑ (MIXED): uncertain signals.</strong></p>
+                    <p><strong>→ ENERGY: shift imminent. Crisis.</strong></p>
                     <p><strong>Divergence (Brent↑, USD↑, WTI↓) predicts the next major capital rotation from Tech toward Energy, and a potential global crisis:</strong></p>
                     <p><strong>Oil and food shortages, price spikes, layoffs, riots, and a stock market crash.</strong></p>
                 </div>
@@ -62,43 +58,39 @@
             </div>
 
             <!-- Panel DEFCON -->
-            <div class="main-container debug-border">
-                <!--<div class="defcon-panel">-->
-                <div class="carousel-week-contentb">
-                    <div class="defcon-container debug-border">
-                        <div class="defcon-level" data-level="5">5</div>
-                        <div class="defcon-level" data-level="4">4</div>
-                        <div class="defcon-level" data-level="3">3</div>
-                        <div class="defcon-level" data-level="2">2</div>
-                        <div class="defcon-level" data-level="1">1</div>
-                    </div>
-                                        
-
-                    <div class="secondary-label debug-border"><strong>CURRENT THREAT LEVEL</strong></div>
-                    
-                    <div class="lcd-screen debug-border">                   
-                        <table class="tracking-table" id="weekTable">
-                        <thead><tr><th>ASSET</th><th>Perf W</th></tr></thead>
-                        <tbody id="weekTableBody"></tbody>
-                        </table>
-                    </div>
+            <div class="secondary-container debug-border">
+                <div class="defcon-container debug-border">
+                    <div class="defcon-level" data-level="5">5</div>
+                    <div class="defcon-level" data-level="4">4</div>
+                    <div class="defcon-level" data-level="3">3</div>
+                    <div class="defcon-level" data-level="2">2</div>
+                    <div class="defcon-level" data-level="1">1</div>
+                </div>
+                                    
+                <div class="secondary-label debug-border"><strong>Current Threat Level</strong></div>
+                
+                <div class="lcd-screen debug-border">                   
+                    <table class="tracking-table" id="weekTable">
+                    <thead><tr><th>ASSET</th><th>Perf W</th></tr></thead>
+                    <tbody id="weekTableBody"></tbody>
+                    </table>
+                </div>
 
 
 
-                    <div class="table-label">
-                        <div class="secondary-label"><strong>Level 1–5 is Determined by Comparing Tech and Energy Values:</strong></div>
-                        <p>🟥 <strong>DEFCON 1:</strong> Tech < -2.5% AND Energy > +2.5% (severe divergence)</p>
-                        <p>🟧 <strong>DEFCON 2:</strong> Tech < 0% AND Energy > 0% (moderate divergence)</p>
-                        <p>🟨 <strong>DEFCON 3:</strong> Tech < 0% AND Energy < 0% (both negative)</p>
-                        <p>🟦 <strong>DEFCON 4:</strong> Tech > 0% AND Energy < 0% (calm)</p>
-                        <p>🟩 <strong>DEFCON 5:</strong> all other cases (peace / low threat)</p>
-                        <div class="secondary-label"><strong>Threat Level Table</strong></div>
-                        <div>Table shows weekly performance (% change) of Energy and Technology sectors. Cell colors (green/red/gray) indicate trend vs previous week, not the threat level.</div>
-                    </div>
+                <div class="table-label">
+                    <div class="secondary-label"><strong>Level 1–5 is Determined by Comparing Tech and Energy Values:</strong></div>
+                    <p>🟥 <strong>DEFCON 1: Tech < -2.5% AND Energy > +2.5% (severe divergence)</strong></p>
+                    <p>🟧 <strong>DEFCON 2: Tech < 0% AND Energy > 0% (moderate divergence)</strong></p>
+                    <p>🟨 <strong>DEFCON 3: Tech < 0% AND Energy < 0% (both negative)</strong></0></p>
+                    <p>🟦 <strong>DEFCON 4: Tech > 0% AND Energy < 0% (calm)</strong></0></p>
+                    <p>🟩 <strong>DEFCON 5: all other cases (peace / low threat)</strong></p>
+                    <div><strong>Table shows weekly performance (% change) of Energy and Technology sectors. Cell colors (green/red/gray) indicate trend vs previous week, not the threat level.</strong></div>
+                </div>
             </div>
 
 
-                <span class="primary-label"><strong>DEFCON Level</strong></span>
+                <span class="primary-label"><strong>Threat Level</strong></span>
 
                 </div>
             </div>
@@ -117,18 +109,24 @@
             </div>
 
             <div class="aside-container debug-border">
-                <div class="lcd-screen links-container">
-                    <p>
-                        <span class="lcd-label">Alerts</span>
-                        <a href="https://finance.yahoo.com/sectors/technology/articles/elon-musk-admits-lied-tesla-185650996.html" target="_blank"><strong>[04-23]</strong> Elon Musk Admits He Lied to Tesla Customers’ Faces for Years About Self-Driving</a><br>
-                        <a href="https://www.yahoo.com/news/articles/iran-more-capable-trump-admin-154441067.html" target="_blank"><strong>[04-23]</strong> Iran's military more capable than Trump admin. is acknowledging, sources say</a><br>
-                        <a href="https://www.yahoo.com/finance/sectors/technology/articles/palantir-published-mini-manifesto-calling-070100565.html" target="_blank"><strong>[04-23]</strong> Palantir published a mini manifesto calling some cultures ‘harmful’ and ‘middling’ and said Silicon Valley has ‘a moral debt’ to the U.S.</a><br>
+                <div class="lcd-screen scroll">
+                    <span class="lcd-label">Alerts</span>
+                    <a href="https://finance.yahoo.com/markets/crypto/articles/robert-kiyosaki-claims-biggest-bubble-120000878.html" target="_blank"><strong>[04-25]</strong> Robert Kiyosaki claims ‘biggest bubble in history’ will wipe out boomers' savings. How to protect your wealth today</a><br>
+                    <a href="https://finance.yahoo.com/markets/stocks/articles/lockheed-martin-ceo-sends-strong-174700950.html" target="_blank"><strong>[04-25]</strong> Lockheed Martin CEO sends strong 2-word message on Middle East</a><br>
+                    <a href="https://finance.yahoo.com/markets/stocks/articles/not-survive-toyota-honda-ford-130000088.html" target="_blank"><strong>[04-25]</strong> ‘We will not survive’: Toyota, Honda and Ford CEOs issue chilling warning about China — and it could hit your portfolio</a><br>
+                    <a href="https://finance.yahoo.com/economy/policy/article/why-the-iran-war-might-not-raise-your-grocery-bill-until-next-year-120223060.html" target="_blank"><strong>[04-25]</strong> Why the Iran war might not raise your grocery bill until next year</a><br>
+                    <a href="https://www.france24.com/en/middle-east/20260425-middle-east-war-live-us-envoys-expected-in-islamabad-as-iran-rules-out-direct-talks" target="_blank"><strong>[04-25]</strong> Middle East war live: Trumps says he is no longer sending envoys to Pakistan for Iran talks</a><br>
+                    <a href="https://www.jpost.com/international/article-884412?utm_source=00024378326bb0e949323aa6b2b55694e9&utm_medium=obbow&utm_campaign=00106121cf58512739fa6638f11cc08b46&utm_adtitle=Donald+Trump+says+US+to+control+parts+of+Greenland+where+bases+sit&dicbo=v4-urvsLFo-1075783007-0" target="_blank"><strong>[04-25]</strong> US to obtain sovereignty over its military bases in Greenland, Trump says</a><br>
+                    <a href="https://finance.yahoo.com/sectors/technology/articles/elon-musk-admits-lied-tesla-185650996.html" target="_blank"><strong>[04-23]</strong> Elon Musk Admits He Lied to Tesla Customers’ Faces for Years About Self-Driving</a><br>
+                    <a href="https://www.yahoo.com/news/articles/iran-more-capable-trump-admin-154441067.html" target="_blank"><strong>[04-23]</strong> Iran's military more capable than Trump admin. is acknowledging, sources say</a><br>
+                        
+                        <!--<a href="https://www.yahoo.com/finance/sectors/technology/articles/palantir-published-mini-manifesto-calling-070100565.html" target="_blank"><strong>[04-23]</strong> Palantir published a mini manifesto calling some cultures ‘harmful’ and ‘middling’ and said Silicon Valley has ‘a moral debt’ to the U.S.</a><br>
                         <a href="https://www.yahoo.com/news/articles/us-military-says-seizes-another-115401871.html" target="_blank"><strong>[04-23]</strong> Trump orders US military to 'shoot and kill' Iranian small boats choking Strait of Hormuz</a><br>
                         <a href="https://finance.yahoo.com/sectors/energy/articles/trump-weighs-shipping-waiver-renewal-023433788.html" target="_blank"><strong>[04-23]</strong>Trump Set to Extend US Ship Waiver to Ease Oil, Gas Crunch</a><br>
                         <a href="https://finance.yahoo.com/sectors/technology/articles/honda-close-assembly-plant-china-085137353.html" target="_blank"><strong>[04-23]</strong>Honda to close assembly plant in China by June – reports</a><br>
                         <a href="https://www.yahoo.com/news/articles/fire-ukrainian-attack-russias-tuapse-235635393.html" target="_blank"><strong>[04-22]</strong> Fire after Ukrainian attack at Russia's Tuapse refinery hits air quality</a><br>
                         <a href="https://www.yahoo.com/news/articles/nasa-nuclear-engineer-found-dead-153934395.html" target="_blank"><strong>[04-22]</strong> NASA nuclear engineer found dead in burned Tesla after vanishing from his Alabama home last year</a><br>
-                        <!--<a href="https://finance.yahoo.com/economy/articles/tables-turned-florida-texas-biggest-175326835.html" target="_blank"><strong>[04-22]</strong> The tables have turned: Florida and Texas are the biggest losers in the housing market as Ohio emerges a surprise winner</a><br>
+                        <a href="https://finance.yahoo.com/economy/articles/tables-turned-florida-texas-biggest-175326835.html" target="_blank"><strong>[04-22]</strong> The tables have turned: Florida and Texas are the biggest losers in the housing market as Ohio emerges a surprise winner</a><br>
                         <a href="https://finance.yahoo.com/markets/crypto/articles/breaking-billionaire-investor-sues-trump-002052827.html" target="_blank"><strong>[04-22]</strong> Billionaire Investor Sues Trump Crypto Venture for Fraud, Says It’s on ‘Verge of Collapse’</a><br>
                         <a href="https://finance.yahoo.com/markets/stocks/articles/warren-buffett-dumped-77-amazon-003700673.html" target="_blank"><strong>[04-21]</strong> Warren Buffett dumped 77% of Amazon to buy surging media stock</a><br>
                         <a href="https://www.wsj.com/livecoverage/iran-war-israel-us-strait-hormuz-2026" target="_blank"><strong>[04-21]</strong> Trump Unlikely to Extend Cease-Fire as Deadline Looms</a><br>
@@ -140,26 +138,24 @@
                         <a href="https://www.marketwatch.com/story/most-u-s-farmers-cant-afford-all-the-fertilizer-they-need-this-year-opening-the-strait-of-hormuz-comes-too-late-0aa72790" target="_blank"><strong>[04-17]</strong> Most U.S. farmers can’t afford all the fertilizer they need this year. Opening the Strait of Hormuz comes too late</a><br>
                         <a href="https://x.com/araghchi/status/2045121573124759713" target="_blank"><strong>[04-17]</strong> Iran Reopens Strait of Hormuz</a><br>
                         <a href="https://thetranscript.substack.com/p/04-13-2026-the-end-of-civilization" target="_blank"><strong>[04-13]</strong> The End of Civilization</a><br>-->
-                    </p>
                 </div>
             </div>
             <div class="aside-container debug-border" title="Content under construction">
                 <div class="lcd-screen">
-                    <p>
-                        <span class="lcd-label">Prepper</span>
-
-                        Water: 1g/Day<br>Rotate Cans Q2<br>Fuel Stabilizer<br>Physical Gold
-                    </p>
+                    <span class="lcd-label">Prepper</span>
+                    <p>Water: 1g/Day</p><br>
+                    <p>Rotate Cans Q2</p><br>
+                    <p>Fuel Stabilizer</p><br>
+                    <p>Physical Gold</p>
                 </div>
             </div>
             <div class="aside-container debug-border">
                 <div class="lcd-screen">
-                    <p>
-                        <span class="lcd-label">Recommended</span>
-                        <a href="https://www.zerohedge.com/">ZeroHedge</a><br>
-                        <a href="https://shtfplan.net">SHTFplan</a><br>
-                        <a href="https://thetranscript.substack.com">The Transcript (Substack)</a>
-                    </p>
+                    <span class="lcd-label">Recommended</span>
+                    <a href="https://www.zerohedge.com/">ZeroHedge</a>
+                    <a href="https://shtfplan.net">SHTFplan</a>
+                    <a href="https://thetranscript.substack.com">The Transcript (Substack)</a>
+                </div>
             </div>        
         </aside>
         <footer>

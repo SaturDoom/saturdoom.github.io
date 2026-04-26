@@ -86,9 +86,6 @@ nav {
   z-index: 10;
   position: sticky;
   top: 0;
-  /*grid-auto-flow: column;   /* Fuerza distribución horizontal */
-  /*justify-content: center;
-  align-content: center;*/
   color: var(--text-green);
   max-height: 56.5px;
   gap: 20px;
@@ -106,13 +103,13 @@ header {
   position: sticky;
   top: 56.5px;
   z-index: 10;
-  /*height: calc(120.5px - 56.5px);*/
   font-family: "Inter Tight", sans-serif;
   text-transform: none;
   font-optical-sizing: auto;
+  font-size: 7vh;
+
   font-weight: 600;
   font-style: normal;
-  font-size: 5em;
   color: var(--orange-paint-medium);
   padding: .7em 0 0 0;
   background-color: var(--console-panel-medium);
@@ -138,7 +135,6 @@ main {
 }
 .main-container {
   display: grid;
-  gap: 0;
   border-top: .5em solid var(--console-panel-medium);
   border-right: .5em solid var(--console-panel-light);
   border-bottom: .5em solid var(--console-panel-light);
@@ -157,6 +153,14 @@ main {
   border-radius: .2em;
   margin: 0;
 }
+.secondary-container {
+  display: grid;
+  gap: 0;
+  border-top: .5em solid var(--console-panel-dark);
+  border-right: .5em solid var(--console-panel-light);
+  border-bottom: .5em solid var(--console-panel-light);
+  border-left: .5em solid var(--console-panel-dark);
+}
 .defcon-container {
   justify-content: center;
   color: var(--dark);
@@ -174,16 +178,18 @@ main {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 1em;
+  border: none;
 }
 .current-date {
+  display: grid;
+  align-content: center;
+  font-weight: bold;
+  color: var(--lcd-white-off);
   padding: .7em;
+  background-color: var(--lcd-digit-dark);
+  border: 2px solid var(--lcd-icon-dark);
 }
-.current-date, .lcd-label{
-  background-color: var(--lcd-digit-dark); 
-  color: var(--lcd-white-off); 
-  font-weight: bold; 
-  padding: .3em;
-}
+
 .defcon-level {
   font-size: 3.5rem;
   font-weight: bold;
@@ -197,6 +203,7 @@ aside {
   grid-area: sidebar;
   padding: 1em;
   display: grid;
+  grid-template-rows: auto 1fr auto auto;
   gap: 1em;
   background-color: var(--console-panel-medium);
   border-top: .4rem solid var(--console-panel-light);
@@ -210,14 +217,15 @@ aside {
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
-  text-align: center;
-  gap: .8em;
+  text-align: start;
   border-radius: .2em;
+  border: 2px solid purple;
 }
 
 .lcd-screen {
-  /*color: var(--dark);*/
+  display: grid;
   padding: 1em;
+  gap: 1em;
   background-color: var(--lcd-white-off);
   box-shadow: inset .1em .1em .5em var(--console-panel-shadow),  /* sombra clara izquierda */
               inset -.1em -.1em .5em var(--console-panel-shadow);  /* sombra oscura derecha */
@@ -226,47 +234,60 @@ aside {
   border-bottom: .1em solid var(--console-panel-light);
   border-left: .1em solid var(--console-panel-dark);
   border-radius: .2em;
-  margin: 0;
+}
+.lcd-label {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--lcd-digit-dark);
+  padding: .2em 0 .2em 0;
+  background-color: transparent;
+  border: 2px solid var(--lcd-digit-dark);
 }
 .lcd-screen a {
+  /*display: grid;*/
   text-decoration: none;
   color: var(--dark);
+  font-weight: bold;
 }
 .lcd-screen p {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  text-align: start;
+  /*display: grid;*/
+  font-weight: bold;
+  gap: 0;
 }
 .clock {
   display: inline;
-
   font-family: 'Orbitron','Courier New', monospace;
   font-size: 1.5em;
   font-weight: bold;
   letter-spacing: auto;
 }
 .primary-label {
-  padding: .2em 0 .3em 0;
+  display: grid;
+  justify-content: center;
+  padding: .5em 0 .5em 0;
   background-color: var(--orange-paint-medium);
 }
 
 
 .secondary-label {
   display: flex;
-  justify-content: space-evenly;
-  color: var(--lcd-white-off);
-  padding: 0 0 0 .5em;
-  background-color: var(--paint-sepia-dark);
+  justify-content: center;
+  align-items: center;
+  padding: .5em 0 .5em 0;
+  color: var(--dark);
+  background-color: transparent;
+  border: 2px solid var(--dark)
 }
 
-.tertiary-label {
-  display: flex;
+.secondary-label.space-evenly {
   justify-content: space-evenly;
-  color: var(--paint-sepia-dark);
-  padding: .3em 0 0 0;
-  background-color: transparent;
-  border: 2px solid var(--paint-sepia-dark)
+  padding: .2em 0 0 0;
+}
+
+.tertiaty-label {
+
 }
 
 /* --------- Tables --------- */
@@ -290,22 +311,6 @@ aside {
   text-shadow: 1px 1px 4px var(--lcd--shadow);
   box-shadow: 4px 4px 8px var(--lcd--shadow);
 
-}
-
-
-
-
-.box {
-  color: var(--dark);
-  padding: 1em;
-  background-color: var(--dark);
-  border: 2px solid var(--border-green);
-  border-radius: .4em;
-  margin: 1em 0 0 0;
-}
-.box a {
-  color: inherit;
-  text-decoration: none;
 }
 
 footer {
@@ -407,6 +412,7 @@ footer {
   border-collapse: collapse;
   max-width: none;
   font-size: 1em;
+  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
   color: var(--lcd-digit-dark);
@@ -432,14 +438,9 @@ footer {
   background-color: var(--lcd-digit-dark);
 }
 
-
-
-
-
-
 .asset {
   text-align: left;
-  font-weight: bold;
+  /*font-weight: bold;*/
   padding-left: 10px;
   background-color: var(--lcd-white-off);
 }
@@ -528,11 +529,11 @@ footer {
   text-align: justify;
 }
 /* También para los textos dentro de .table-label */
-.table-label p {
-  margin-bottom: 0.25rem;
-}
+/*.table-label p {
+  margin: 1em 0 0 0;
+}*/
 /* ---------- COMMON PANEL STYLES (DEFCON & GIRO) ---------- */
-.defcon-panel {
+.panel {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -555,37 +556,25 @@ footer {
   gap: 0;
 }
 
-.carousel-week-contenta {
-  display: block;
-  text-align: left;
-  width: 100%;
-  margin: 0;
-}
-.carousel-week-contentb {
-  display: block;
-  text-align: left;
-  width: 100%;
-  height: 100%;
-  
-  padding: 3rem 0
-}
 /* navigation buttons (shared) */
 .carousel-btn {
   user-select: none;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--paint-sepia-medium);
+  color: var(--console-panel-medium);
+
   cursor: pointer;
   transition: 0.2s;
   padding: 0.5rem 0.5rem;
-  background-color: var(--console-panel-medium);
+  background-color: var(--paint-sepia-medium);
+
   /*border: 1px solid var(--border-green);*/
   border-radius: 4px;
   margin: 0 .5rem 0 .5rem;
 }
 .carousel-btn:hover {
-  background-color: #1a3a10;
-  color: #ffffaa;
+  background-color: var(--paint-sepia-light);
+  color: var(--console-panel-light);
 }
 
 .carousel-btn.disabled,
@@ -607,10 +596,10 @@ footer {
 }
 
 
-/*.scroll {
-  max-height: 400px;
+.scroll {
+  max-height: 100%;
   overflow-y: auto;
-}*/
+}
 
 /*.debug-border {
   border: 2px solid red;
